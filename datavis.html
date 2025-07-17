@@ -3,308 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Analytics - Dashboard</title>
+    <title>AuraBlue - Modern Tech & Lifestyle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         /* ========================================
-        CSS STYLES (DATA VISUALIZATION THEME)
+        CSS STYLES (AURA BLUE E-COMMERCE THEME)
         ======================================== */
         :root {
-            --bg-dark: #161B22;
-            --bg-card: #1F242C;
-            --text-primary: #CDD9E5;
-            --text-secondary: #7D8590;
-            --accent-teal: #39D3BB;
-            --accent-purple: #A277FF;
-            --border-color: rgba(125, 133, 144, 0.2);
-            --font-display: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --bg-light: #F0F4F8;        /* Light Sky Blue */
+            --bg-dark: #1A2238;         /* Deep Indigo */
+            --text-primary: #1A2238;    /* Deep Indigo for text on light bg */
+            --text-light: #F0F4F8;      /* Light Sky Blue for text on dark bg */
+            --accent-blue: #4A90E2;     /* Bright Cornflower Blue */
+            --accent-blue-dark: #357ABD;/* Darker Blue for hover */
+            --card-bg: #FFFFFF;
+            --font-display: 'Source Serif Pro', serif;
+            --font-body: 'Poppins', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: var(--font-body);
-            background-color: var(--bg-dark);
+            background-color: var(--bg-light);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        a { text-decoration: none; color: var(--accent-teal); transition: color 0.3s ease; }
-        a:hover { color: var(--text-primary); }
+        a { text-decoration: none; color: var(--accent-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--accent-blue-dark); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        
         h1, h2, h3, h4 {
             font-family: var(--font-display);
             color: var(--text-primary);
             font-weight: 700;
         }
 
-        /* --- Layout --- */
-        .dashboard-layout {
-            display: flex;
+        .container {
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
         }
-        .sidebar {
-            width: 250px;
-            background-color: var(--bg-dark);
-            border-right: 1px solid var(--border-color);
-            padding: 2rem 1.5rem;
-            height: 100vh;
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn:hover {
+            background-color: var(--accent-blue-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navigation --- */
+        nav {
             position: fixed;
-            left: 0;
             top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(240, 244, 248, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #dde4eb;
         }
-        main {
-            margin-left: 250px;
-            width: calc(100% - 250px);
-            padding: 2rem;
-        }
-
-        /* --- Sidebar --- */
-        .sidebar-header {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .sidebar-header i {
-            color: var(--accent-purple);
-        }
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.8rem;
-            border-radius: 6px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        .sidebar-nav a.active, .sidebar-nav a:hover {
-            background-color: var(--bg-card);
-            color: var(--text-primary);
-        }
-        .sidebar-nav a i {
-            width: 20px;
-        }
-
-        /* --- Main Content --- */
-        .main-header {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            height: 80px;
         }
-        .main-header h1 {
-            font-size: 2.5rem;
-        }
-        .user-profile {
+        .logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-primary); font-weight: 600; }
+        .nav-icons { display: flex; align-items: center; gap: 1.5rem; font-size: 1.2rem; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; z-index: 1001; }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding-top: 80px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            background-color: var(--bg-light);
         }
-        .user-profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+        .hero-image {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 8px;
         }
 
-        /* --- Dashboard Grid --- */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
+        /* --- Product Section --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
-        .chart-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+        .section-header h2 {
+            font-size: 3rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 350px;
+            background-color: #f5f5f5;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
             padding: 1.5rem;
         }
-        .chart-card h3 {
+        .product-info h3 {
+            font-size: 1.4rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        .product-price {
             font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-top: 0.5rem;
+        }
+
+        /* --- Promo Section --- */
+        #promo-section {
+            padding: 0 5%; /* Use padding on section instead of margin on card */
+        }
+        .promo-card {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            border-radius: 20px;
+            padding: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        .promo-content h2 {
+            color: var(--text-light);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .promo-content p {
+            color: #d0d4d8;
+            margin-bottom: 2rem;
+        }
+        .promo-image img {
+            border-radius: 16px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: #a9b0c3;
+            padding: 6rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-col ul li {
             margin-bottom: 1rem;
         }
-        .chart-card.full-width {
-            grid-column: 1 / -1;
+        .footer-col ul li a {
+            color: #a9b0c3;
         }
-        
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
         /* --- Responsive --- */
         @media (max-width: 992px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-            }
-            .sidebar.active {
-                transform: translateX(0);
-            }
-            main {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
                 width: 100%;
-                margin-left: 0;
+                background: var(--bg-light);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
             }
             .menu-toggle {
                 display: block;
-                font-size: 1.5rem;
-                cursor: pointer;
-                z-index: 1001;
+            }
+            .hero-layout, .promo-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-image { margin-top: 3rem; order: -1; } /* Image on top on mobile */
+            .promo-image { order: -1; margin-bottom: 2rem; }
+            .promo-card { padding: 3rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .section-header h2, .promo-content h2 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 4rem 0;
             }
         }
-        .menu-toggle { display: none; }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-layout">
-        <aside class="sidebar" id="sidebar">
-            <h2 class="sidebar-header"><i class="fas fa-chart-pie"></i> Quantum</h2>
-            <nav class="sidebar-nav">
-                <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
-                <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
-                <a href="#"><i class="fas fa-flag"></i> Reports</a>
-                <a href="#"><i class="fas fa-users"></i> Teams</a>
-                <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            </nav>
-        </aside>
+    <!-- HEADER & NAVIGATION -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">AuraBlue</div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <main>
-            <header class="main-header">
-                <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
-                <h1>Dashboard</h1>
-                <div class="user-profile">
-                    <span>Jane Doe</span>
-                    <img src="https://placehold.co/100x100/A277FF/FFFFFF?text=JD" alt="User Profile">
-                </div>
-            </header>
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <h1>Elevate Your Everyday</h1>
+                <p>Discover thoughtfully designed tech and lifestyle products that blend form, function, and a touch of the future.</p>
+                <a href="#" class="btn">Explore Collection</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/800x600/1A2238/F0F4F8?text=Aura+Watch" alt="Featured Product">
+            </div>
+        </div>
+    </section>
 
-            <div class="dashboard-grid">
-                <div class="chart-card full-width">
-                    <h3>Monthly Revenue</h3>
-                    <canvas id="revenueChart"></canvas>
+    <main>
+        <!-- FEATURED PRODUCTS SECTION -->
+        <section id="products" class="container">
+            <div class="section-header reveal-up">
+                <h2>Curated For You</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card reveal-up">
+                    <div class="product-image"><img src="https://placehold.co/600x800/EAEFF4/1A2238?text=Product+1" alt="Product 1"></div>
+                    <div class="product-info">
+                        <h3>Aura Headphones</h3>
+                        <p class="product-price">$299.00</p>
+                    </div>
                 </div>
-                <div class="chart-card">
-                    <h3>Traffic Sources</h3>
-                    <canvas id="trafficChart"></canvas>
+                <div class="product-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/DDE4EB/1A2238?text=Product+2" alt="Product 2"></div>
+                    <div class="product-info">
+                        <h3>Smart Desk Lamp</h3>
+                        <p class="product-price">$129.00</p>
+                    </div>
                 </div>
-                <div class="chart-card">
-                    <h3>User Demographics</h3>
-                    <canvas id="demographicsChart"></canvas>
+                <div class="product-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/CFD8E2/1A2238?text=Product+3" alt="Product 3"></div>
+                    <div class="product-info">
+                        <h3>Minimalist Backpack</h3>
+                        <p class="product-price">$179.00</p>
+                    </div>
                 </div>
-                <div class="chart-card full-width">
-                    <h3>Performance Metrics</h3>
-                    <canvas id="performanceChart"></canvas>
+                <div class="product-card reveal-up" style="transition-delay: 0.3s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/C2CAD8/1A2238?text=Product+4" alt="Product 4"></div>
+                    <div class="product-info">
+                        <h3>Aura Smart Bottle</h3>
+                        <p class="product-price">$89.00</p>
+                    </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </section>
 
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- PROMO SECTION -->
+        <section id="promo-section" class="container">
+            <div class="promo-card reveal-up">
+                <div class="promo-content">
+                    <h2>The Sound of Tomorrow</h2>
+                    <p>Experience immersive, high-fidelity audio with the new Aura Headphones. Noise-cancelling technology meets unparalleled comfort and design.</p>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+                <div class="promo-image">
+                    <img src="https://placehold.co/800x600/4A90E2/FFFFFF?text=Aura+Headphones" alt="Promo Image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AuraBlue</h4>
+                    <p>Design for a better life.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Audio</a></li>
+                        <li><a href="#">Workspace</a></li>
+                        <li><a href="#">Travel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Stay Connected</h4>
+                    <p>Get the latest on new releases and special offers.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AuraBlue. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menu-toggle');
-            const sidebar = document.getElementById('sidebar');
+            const navLinks = document.getElementById('nav-links');
             if(menuToggle) {
                 menuToggle.addEventListener('click', () => {
-                    sidebar.classList.toggle('active');
+                    navLinks.classList.toggle('active');
                 });
             }
 
-            // --- Chart.js Implementation ---
-            const chartOptions = {
-                plugins: {
-                    legend: { labels: { color: '#CDD9E5' } }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { color: '#7D8590' },
-                        grid: { color: 'rgba(125, 133, 144, 0.2)' }
-                    },
-                    x: {
-                        ticks: { color: '#7D8590' },
-                        grid: { color: 'rgba(125, 133, 144, 0.2)' }
+            // --- Scroll Animation ---
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
                     }
-                }
-            };
+                });
+            }, { threshold: 0.1 });
 
-            // 1. Revenue Chart (Line)
-            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-            new Chart(revenueCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-                    datasets: [{
-                        label: 'Revenue (USD)',
-                        data: [12000, 19000, 15000, 25000, 22000, 30000, 28000, 35000],
-                        borderColor: '#39D3BB',
-                        backgroundColor: 'rgba(57, 211, 187, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: chartOptions
-            });
-
-            // 2. Traffic Sources Chart (Doughnut)
-            const trafficCtx = document.getElementById('trafficChart').getContext('2d');
-            new Chart(trafficCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Organic', 'Direct', 'Referral', 'Social'],
-                    datasets: [{
-                        label: 'Traffic Sources',
-                        data: [45, 25, 15, 15],
-                        backgroundColor: ['#39D3BB', '#A277FF', '#58A6FF', '#FF7B72'],
-                        borderColor: '#1F242C',
-                        borderWidth: 4
-                    }]
-                },
-                options: { plugins: { legend: { position: 'right', labels: { color: '#CDD9E5' } } } }
-            });
-
-            // 3. Demographics Chart (Bar)
-            const demographicsCtx = document.getElementById('demographicsChart').getContext('2d');
-            new Chart(demographicsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['USA', 'Germany', 'UK', 'Japan', 'Canada', 'Brazil'],
-                    datasets: [{
-                        label: 'Active Users',
-                        data: [3500, 2200, 1800, 1500, 1200, 900],
-                        backgroundColor: '#58A6FF'
-                    }]
-                },
-                options: chartOptions
-            });
-
-            // 4. Performance Chart (Radar)
-            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
-            new Chart(performanceCtx, {
-                type: 'radar',
-                data: {
-                    labels: ['Speed', 'Usability', 'Reliability', 'Performance', 'Support', 'Features'],
-                    datasets: [{
-                        label: 'Q2 Score',
-                        data: [85, 90, 75, 88, 95, 80],
-                        fill: true,
-                        backgroundColor: 'rgba(162, 119, 255, 0.2)',
-                        borderColor: '#A277FF',
-                        pointBackgroundColor: '#A277FF',
-                    }]
-                },
-                options: {
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        r: {
-                            angleLines: { color: 'rgba(125, 133, 144, 0.2)' },
-                            grid: { color: 'rgba(125, 133, 144, 0.2)' },
-                            pointLabels: { color: '#CDD9E5', font: { size: 14 } },
-                            ticks: { backdropColor: '#161B22', color: '#CDD9E5' }
-                        }
-                    }
-                }
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                scrollObserver.observe(el);
             });
         });
     </script>
