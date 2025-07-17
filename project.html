@@ -40,9 +40,10 @@
             font-weight: 700;
         }
         .container {
-            padding: 6rem 5%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 6rem 0;
         }
         .section-divider {
             border: 0;
@@ -94,7 +95,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .cta-button:hover { background-color: var(--accent-color); transform: scale(1.05); }
-        .menu-toggle { display: none; cursor: pointer; }
+        .menu-toggle { display: none; cursor: pointer; z-index: 1001; }
 
         /* --- Page Header --- */
         .page-header {
@@ -119,7 +120,7 @@
         }
         .project-layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr; /* Adjusted grid for better balance */
+            grid-template-columns: 1fr 1.5fr;
             gap: 4rem;
             align-items: center;
         }
@@ -166,7 +167,7 @@
         .project-iframe-container {
             position: relative;
             width: 100%;
-            padding-top: 65%; /* Aspect Ratio (height/width) */
+            padding-top: 65%;
             background-color: var(--bg-secondary);
             border: 1px solid var(--bg-secondary);
             border-radius: 8px;
@@ -196,21 +197,31 @@
             .project-layout, .project:nth-child(even) .project-layout {
                 grid-template-columns: 1fr;
             }
-            .project:nth-child(even) .project-info {
-                order: 0;
-            }
+            .project:nth-child(even) .project-info,
             .project:nth-child(even) .project-iframe-container {
                 order: 0;
+            }
+            .project-info {
+                text-align: center;
             }
         }
         @media (max-width: 768px) {
             .nav-links {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%;
-                background: var(--bg-primary); padding: 2rem;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            .menu-toggle { display: block; z-index: 1001; }
+            .menu-toggle { display: block; }
+            .container {
+                padding: 4rem 0;
+            }
         }
 
     </style>
@@ -369,7 +380,7 @@
         <div class="container">
             <h2>Let's Work Together</h2>
             <p>Have a project in mind? I'd love to hear from you.</p>
-            <a href="mailto:info@han-email.com" class="cta-button">hosanna.ute@gmail.com</a>
+            <a href="mailto:hosanna.ute@gmail.com" class="cta-button">hosanna.ute@gmail.com</a>
         </div>
     </footer>
 
