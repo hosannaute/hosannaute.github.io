@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraBlue - Modern Tech & Lifestyle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ========================================
+        CSS STYLES (AURA BLUE E-COMMERCE THEME)
+        ======================================== */
+        :root {
+            --bg-light: #F0F4F8;        /* Light Sky Blue */
+            --bg-dark: #1A2238;         /* Deep Indigo */
+            --text-primary: #1A2238;    /* Deep Indigo for text on light bg */
+            --text-light: #F0F4F8;      /* Light Sky Blue for text on dark bg */
+            --accent-blue: #4A90E2;     /* Bright Cornflower Blue */
+            --accent-blue-dark: #357ABD;/* Darker Blue for hover */
+            --card-bg: #FFFFFF;
+            --font-display: 'Source Serif Pro', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: var(--accent-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--accent-blue-dark); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .container {
+            padding: 0 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn:hover {
+            background-color: var(--accent-blue-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(240, 244, 248, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #dde4eb;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-primary); font-weight: 600; }
+        .nav-icons { display: flex; align-items: center; gap: 1.5rem; font-size: 1.2rem; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding-top: 80px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-light);
+        }
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+        .hero-image {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* --- Product Section --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 350px;
+            background-color: #f5f5f5;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-info h3 {
+            font-size: 1.4rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-top: 0.5rem;
+        }
+
+        /* --- Promo Section --- */
+        #promo {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            border-radius: 20px;
+            margin: 0 5%;
+        }
+        .promo-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        .promo-content h2 {
+            color: var(--text-light);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .promo-content p {
+            color: #d0d4d8;
+            margin-bottom: 2rem;
+        }
+        .promo-image img {
+            border-radius: 16px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: #a9b0c3;
+            padding: 6rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-col ul li {
+            margin-bottom: 1rem;
+        }
+        .footer-col ul li a {
+            color: #a9b0c3;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero-layout, .promo-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-image { margin-top: 3rem; }
+            .promo-image { order: -1; }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links.active {
+                display: flex; flex-direction: column; position: absolute;
+                top: 80px; left: 0; width: 100%;
+                background: var(--bg-light); padding: 2rem; gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">AuraBlue</div>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <h1>Elevate Your Everyday</h1>
+                <p>Discover thoughtfully designed tech and lifestyle products that blend form, function, and a touch of the future.</p>
+                <a href="#" class="btn">Explore Collection</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/800x600/1A2238/F0F4F8?text=Aura+Watch" alt="Featured Product">
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- FEATURED PRODUCTS SECTION -->
+        <section id="products" class="container">
+            <div class="section-header reveal-up">
+                <h2>Curated For You</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card reveal-up">
+                    <div class="product-image"><img src="https://placehold.co/600x800/EAEFF4/1A2238?text=Product+1" alt="Product 1"></div>
+                    <div class="product-info">
+                        <h3>Aura Headphones</h3>
+                        <p class="product-price">$299.00</p>
+                    </div>
+                </div>
+                <div class="product-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/DDE4EB/1A2238?text=Product+2" alt="Product 2"></div>
+                    <div class="product-info">
+                        <h3>Smart Desk Lamp</h3>
+                        <p class="product-price">$129.00</p>
+                    </div>
+                </div>
+                <div class="product-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/CFD8E2/1A2238?text=Product+3" alt="Product 3"></div>
+                    <div class="product-info">
+                        <h3>Minimalist Backpack</h3>
+                        <p class="product-price">$179.00</p>
+                    </div>
+                </div>
+                <div class="product-card reveal-up" style="transition-delay: 0.3s;">
+                    <div class="product-image"><img src="https://placehold.co/600x800/C2CAD8/1A2238?text=Product+4" alt="Product 4"></div>
+                    <div class="product-info">
+                        <h3>Aura Smart Bottle</h3>
+                        <p class="product-price">$89.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMO SECTION -->
+        <section id="promo" class="container reveal-up">
+            <div class="promo-layout">
+                <div class="promo-content">
+                    <h2>The Sound of Tomorrow</h2>
+                    <p>Experience immersive, high-fidelity audio with the new Aura Headphones. Noise-cancelling technology meets unparalleled comfort and design.</p>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+                <div class="promo-image">
+                    <img src="https://placehold.co/800x600/4A90E2/FFFFFF?text=Aura+Headphones" alt="Promo Image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AuraBlue</h4>
+                    <p>Design for a better life.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Audio</a></li>
+                        <li><a href="#">Workspace</a></li>
+                        <li><a href="#">Travel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Stay Connected</h4>
+                    <p>Get the latest on new releases and special offers.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AuraBlue. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            if(menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // --- Scroll Animation ---
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                scrollObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

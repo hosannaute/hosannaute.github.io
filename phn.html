@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene - Mobile App Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ========================================
+        CSS STYLES (MOBILE APP SIMULATION)
+        ======================================== */
+        :root {
+            --app-bg: #F0F7F8;
+            --primary-blue: #3A8D9E;
+            --secondary-green: #63B4B8;
+            --text-dark: #1A3A40;
+            --text-light: #7A9A9E;
+            --card-bg: #FFFFFF;
+            --font-body: 'Manrope', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* --- Main Page Body --- */
+        body {
+            font-family: var(--font-body);
+            background-color: #EAEFF2; /* A neutral background to highlight the phone */
+            color: var(--text-dark);
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* --- Phone Frame --- */
+        .phone-container {
+            width: 414px; /* iPhone 11 Pro Max width */
+            height: 896px; /* iPhone 11 Pro Max height */
+            background-color: #111;
+            border-radius: 60px;
+            padding: 15px;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5), inset 0 0 0 2px #333;
+            position: relative;
+        }
+        .phone-screen {
+            background-color: var(--app-bg);
+            width: 100%;
+            height: 100%;
+            border-radius: 45px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-notch {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 210px;
+            height: 30px;
+            background-color: #111;
+            border-radius: 0 0 20px 20px;
+            z-index: 100;
+        }
+
+        /* --- App Content Area --- */
+        .app-main-content {
+            flex-grow: 1;
+            position: relative;
+        }
+        .app-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .app-page.active {
+            transform: translateX(0);
+        }
+
+        /* --- Bottom Navigation --- */
+        .app-bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--card-bg);
+            height: 80px;
+            border-top: 1px solid #e0e0e0;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-light);
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-item i {
+            font-size: 1.5rem;
+        }
+        .nav-item.active, .nav-item:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- UI Components --- */
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+        .welcome-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            color: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+        .welcome-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .session-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .session-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-green);
+            background-color: var(--app-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+        .session-info h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .session-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+            <main class="app-main-content">
+                <!-- Home Page -->
+                <div class="app-page active" id="home-page">
+                    <h1 class="page-title">Today</h1>
+                    <div class="welcome-card">
+                        <h3>Welcome Back, Hosanna</h3>
+                        <p>Ready for your daily moment of calm?</p>
+                    </div>
+                    
+                    <h4>Recommended For You</h4>
+                    <div class="session-card" style="margin-top: 1rem;">
+                        <div class="session-icon"><i class="fas fa-sun"></i></div>
+                        <div class="session-info">
+                            <h4>Morning Gratitude</h4>
+                            <p>10 min meditation</p>
+                        </div>
+                    </div>
+                    <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-moon"></i></div>
+                        <div class="session-info">
+                            <h4>Unwind for Sleep</h4>
+                            <p>15 min sleep story</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discover Page -->
+                <div class="app-page" id="discover-page">
+                    <h1 class="page-title">Discover</h1>
+                    <h4>All Meditations</h4>
+                    <div class="session-card" style="margin-top: 1rem;">
+                        <div class="session-icon"><i class="fas fa-brain"></i></div>
+                        <div class="session-info"><h4>Mindfulness</h4><p>24 sessions</p></div>
+                    </div>
+                    <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-heart"></i></div>
+                        <div class="session-info"><h4>Self-Compassion</h4><p>18 sessions</p></div>
+                    </div>
+                    <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="session-info"><h4>Nature Sounds</h4><p>32 sessions</p></div>
+                    </div>
+                </div>
+
+                <!-- Profile Page -->
+                <div class="app-page" id="profile-page">
+                    <h1 class="page-title">Profile</h1>
+                    <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-user"></i></div>
+                        <div class="session-info"><h4>Hosanna Ute</h4><p>Member since 2025</p></div>
+                    </div>
+                     <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div class="session-info"><h4>My Stats</h4><p>View your progress</p></div>
+                    </div>
+                     <div class="session-card">
+                        <div class="session-icon"><i class="fas fa-cog"></i></div>
+                        <div class="session-info"><h4>Settings</h4><p>Manage your account</p></div>
+                    </div>
+                </div>
+            </main>
+
+            <nav class="app-bottom-nav">
+                <div class="nav-item active" data-target="home-page">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" data-target="discover-page">
+                    <i class="fas fa-compass"></i>
+                    <span>Discover</span>
+                </div>
+                <div class="nav-item" data-target="profile-page">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const appPages = document.querySelectorAll('.app-page');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    
+                    // Update active nav item
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Update active page
+                    appPages.forEach(page => {
+                        if (page.id === targetId) {
+                            page.classList.add('active');
+                        } else {
+                            page.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

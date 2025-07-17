@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northwood University - Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <style>
+        /* ========================================
+        CSS STYLES (GREY UNIVERSITY THEME)
+        ======================================== */
+        :root {
+            --bg-primary: #F8F9FA;      /* Very Light Grey */
+            --bg-secondary: #E9ECEF;    /* Light Grey */
+            --text-primary: #212529;    /* Charcoal Grey */
+            --text-secondary: #6C757D;  /* Medium Grey */
+            --accent-color: #007BFF;    /* A strong blue for highlights */
+            --highlight-color: #0056b3; /* A darker blue for hover */
+            --card-bg: #FFFFFF;
+            --font-primary: 'Poppins', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: var(--accent-color); transition: color 0.3s ease; }
+        a:hover { color: var(--highlight-color); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .container {
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: var(--highlight-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-primary); font-weight: 600; font-size: 0.9rem; }
+        .nav-links .btn { margin-left: 1rem; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.6)), url('https://placehold.co/1920x1080/6C757D/FFFFFF?text=University+Campus') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 5%;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* --- Info Cards Section --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--bg-secondary);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .info-card .icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* --- News & Events Section --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+        .section-header p {
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+            color: var(--text-secondary);
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .news-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 1.5rem;
+        }
+        .news-content .category {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .news-content a {
+            font-weight: 600;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #212529;
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-family: var(--font-primary);
+            font-weight: 600;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="#" style="color: var(--text-primary);">Northwood Uni</a></div>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#" class="btn">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Excellence in Education & Research</h1>
+            <p>Join a vibrant community of scholars and innovators at Northwood University, where we nurture the leaders of tomorrow.</p>
+            <a href="#" class="btn">Discover Programs</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- INFO CARDS SECTION -->
+        <section id="info-cards" class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Undergraduate</h3>
+                    <p>Explore over 100 major and minor programs designed for your success.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Research</h3>
+                    <p>Engage in groundbreaking research that makes a global impact.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Campus Life</h3>
+                    <p>Discover a rich and diverse student life with hundreds of clubs and activities.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h3>Global Campus</h3>
+                    <p>Join our international community with students from over 80 countries.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS & EVENTS SECTION -->
+        <section id="news" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest News & Events</h2>
+                    <p>Stay updated with the latest happenings, achievements, and upcoming events at Northwood University.</p>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img src="https://placehold.co/600x400/6C757D/FFFFFF?text=Research+Breakthrough" alt="News Image 1">
+                        <div class="news-content">
+                            <p class="category">Research</p>
+                            <h3><a href="#">Physics Department Announces Major Quantum Computing Discovery</a></h3>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="https://placehold.co/600x400/ADB5BD/FFFFFF?text=Campus+Event" alt="News Image 2">
+                        <div class="news-content">
+                            <p class="category">Campus Life</p>
+                            <h3><a href="#">Annual 'Innovate Northwood' Tech Fair Scheduled for October 25th</a></h3>
+                            <a href="#" class="read-more">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="https://placehold.co/600x400/495057/FFFFFF?text=Student+Achievement" alt="News Image 3">
+                        <div class="news-content">
+                            <p class="category">Academics</p>
+                            <h3><a href="#">Northwood Student Wins Prestigious National Design Award</a></h3>
+                            <a href="#" class="read-more">Read Story &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Northwood</h4>
+                    <ul>
+                        <li><a href="#">Mission & Values</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers at Northwood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Academics</h4>
+                    <ul>
+                        <li><a href="#">Undergraduate Programs</a></li>
+                        <li><a href="#">Graduate Programs</a></li>
+                        <li><a href="#">Online Learning</a></li>
+                        <li><a href="#">Library</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">Request Information</a></li>
+                        <li><a href="#">Visit Campus</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>123 University Drive,<br>Northwood City, 12345</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Northwood University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

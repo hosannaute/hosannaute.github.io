@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work - Han Nguyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+        CSS STYLES (MATCHES ORIGINAL PAGE)
+        ======================================== */
+        :root {
+            --bg-primary: #FDF8F2;
+            --bg-secondary: #EFE5D8;
+            --text-primary: #4A3F35;
+            --accent-color: #A98768;
+            --highlight-color: #D4A373;
+            --card-bg: #FFFFFF;
+            --font-primary: 'Poppins', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .container {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: var(--accent-color);
+            opacity: 0.2;
+            max-width: 90%;
+            margin: 4rem auto;
+        }
+
+        /* --- Scroll Animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        /* --- Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(253, 248, 242, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(74, 63, 53, 0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo a { font-weight: 600; font-size: 1.2rem; color: var(--text-primary); }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links a { transition: color 0.3s ease; font-weight: 400; }
+        .nav-links a:hover, .nav-links a.active { color: var(--highlight-color); }
+        .cta-button {
+            background-color: var(--highlight-color);
+            color: #fff !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover { background-color: var(--accent-color); transform: scale(1.05); }
+        .menu-toggle { display: none; cursor: pointer; }
+
+        /* --- Page Header --- */
+        .page-header {
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            background-color: var(--bg-secondary);
+        }
+        .page-header h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+        }
+        .page-header p {
+            max-width: 60ch;
+            margin: 1rem auto 0;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        /* --- Project Section --- */
+        .project {
+            padding: 4rem 0;
+        }
+        .project-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Adjusted grid for better balance */
+            gap: 4rem;
+            align-items: center;
+        }
+        .project:nth-child(even) .project-layout {
+            grid-template-columns: 1.5fr 1fr;
+        }
+        .project:nth-child(even) .project-info {
+            order: 2;
+        }
+        .project:nth-child(even) .project-iframe-container {
+            order: 1;
+        }
+
+        .project-info h2 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            line-height: 1.1;
+        }
+        .project-info h2 span {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .project-info .project-description {
+            margin: 1.5rem 0;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .project-tags .tag-pill {
+            display: inline-block;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- IFRAME STYLES --- */
+        .project-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 65%; /* Aspect Ratio (height/width) */
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .project-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 5% 2rem;
+            background-color: var(--bg-primary);
+        }
+        footer h2 { font-size: 2.5rem; }
+        footer p { margin: 1rem 0 2rem; }
+        
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .project-layout, .project:nth-child(even) .project-layout {
+                grid-template-columns: 1fr;
+            }
+            .project:nth-child(even) .project-info {
+                order: 0;
+            }
+            .project:nth-child(even) .project-iframe-container {
+                order: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: var(--bg-primary); padding: 2rem;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; z-index: 1001; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">✦ Hosanna Ute</a></div>
+            <div class="menu-toggle" id="menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20M4 12H20M4 18H20" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="portfolio.html" class="cta-button">Portfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header reveal">
+        <h1>My Creative Work</h1>
+        <p>A collection of projects where I've blended design, strategy, and technology to create meaningful experiences.</p>
+    </header>
+
+    <main>
+        <!-- PROJECT 01 -->
+        <section id="project1" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-info">
+                    <h2><span>Project 01</span>University Website</h2>
+                    <p class="project-description">
+                        A clean and professional design for an educational institution, focusing on clear navigation and a modern aesthetic.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">Web Design</span>
+                        <span class="tag-pill">UI/UX</span>
+                    </div>
+                </div>
+                <div class="project-iframe-container">
+                    <iframe src="unisample.html" title="University Website Project Sample" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECT 02 -->
+        <section id="project2" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-iframe-container">
+                    <iframe src="3dsample.html" title="Gaming Website Project Sample" loading="lazy"></iframe>
+                </div>
+                <div class="project-info">
+                    <h2><span>Project 02</span>3D Gaming Portal</h2>
+                    <p class="project-description">
+                        A stylized HTML5 site for a gaming platform, featuring a futuristic theme and an interactive 3D hero object.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">3D Graphics</span>
+                        <span class="tag-pill">Three.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECT 03 -->
+        <section id="project3" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-info">
+                    <h2><span>Project 03</span>Gardening Service</h2>
+                    <p class="project-description">
+                        A fresh and natural design for a local gardening service, complete with a dynamic 3D leaf animation to capture attention.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">Web Design</span>
+                        <span class="tag-pill">3D Animation</span>
+                    </div>
+                </div>
+                <div class="project-iframe-container">
+                    <iframe src="gardsample.html" title="Gardening Website Project Sample" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECT 04 -->
+        <section id="project4" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-iframe-container">
+                    <iframe src="aura.html" title="Project Sample 4" loading="lazy"></iframe>
+                </div>
+                <div class="project-info">
+                    <h2><span>Project 04</span>E-commerce Store</h2>
+                    <p class="project-description">
+                        A fully functional e-commerce template with a focus on clean product presentation and a seamless checkout process.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">E-commerce</span>
+                        <span class="tag-pill">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECT 05 -->
+        <section id="project5" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-info">
+                    <h2><span>Project 05</span>Data Visualization</h2>
+                    <p class="project-description">
+                        An interactive dashboard for visualizing complex data sets, built with modern charting libraries for a responsive experience.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">Data Viz</span>
+                        <span class="tag-pill">D3.js</span>
+                    </div>
+                </div>
+                <div class="project-iframe-container">
+                    <iframe src="datavis.html" title="Project Sample 5" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECT 06 -->
+        <section id="project6" class="container project reveal">
+            <div class="project-layout">
+                <div class="project-iframe-container">
+                    <iframe src="phn.html" title="Project Sample 6" loading="lazy"></iframe>
+                </div>
+                <div class="project-info">
+                    <h2><span>Project 06</span>Mobile Application</h2>
+                    <p class="project-description">
+                        A concept and prototype for a mobile-first application, designed with intuitive navigation and a user-centered approach.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag-pill">Mobile App</span>
+                        <span class="tag-pill">Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="reveal">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind? I'd love to hear from you.</p>
+            <a href="mailto:info@han-email.com" class="cta-button">hosanna.ute@gmail.com</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

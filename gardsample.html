@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf Gardening - 3D Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ========================================
+        CSS STYLES (GREEN GARDENING THEME)
+        ======================================== */
+        :root {
+            --bg-primary: #F4F8F4;      /* Light Mint White */
+            --bg-secondary: #E8F0E8;    /* Soft Sage */
+            --text-primary: #1C3B29;    /* Forest Green */
+            --text-secondary: #587467;  /* Muted Green */
+            --accent-color: #4CAF50;    /* Vibrant Leaf Green */
+            --highlight-color: #388E3C; /* Darker Leaf Green */
+            --card-bg: #FFFFFF;
+            --font-primary: 'Roboto', sans-serif;
+            --font-serif: 'Merriweather', serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: var(--accent-color); transition: color 0.3s ease; }
+        a:hover { color: var(--highlight-color); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .container {
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: var(--highlight-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(244, 248, 244, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .logo { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--text-primary); }
+        .logo i { color: var(--accent-color); }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links a { color: var(--text-primary); font-weight: 500; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            color: var(--text-primary);
+            padding: 80px 5% 0;
+            background-color: var(--bg-secondary);
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 550px;
+            z-index: 10;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        #hero-canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Services Section --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+        .section-header p {
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+            color: var(--text-secondary);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--bg-secondary);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Gallery Section --- */
+        #gallery {
+            background-color: var(--bg-secondary);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-primary);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-family: var(--font-primary);
+            font-weight: 500;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            #hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            #hero-canvas-container {
+                opacity: 0.2; /* Make canvas more subtle on mobile */
+            }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><i class="fas fa-leaf"></i> GreenLeaf</div>
+            <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Bringing Your Garden to Life</h1>
+            <p>From landscape design to regular maintenance, GreenLeaf provides expert care to help your outdoor spaces flourish.</p>
+            <a href="#" class="btn">Get a Free Quote</a>
+        </div>
+        <div id="hero-canvas-container"></div>
+    </section>
+
+    <main>
+        <!-- SERVICES SECTION -->
+        <section id="services" class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We offer a complete range of gardening and landscaping services to suit your needs and budget.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h3>Landscape Design</h3>
+                    <p>Creative and sustainable garden designs tailored to your lifestyle.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Planting & Seeding</h3>
+                    <p>Expert selection and planting of flowers, shrubs, and trees.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-cut"></i></div>
+                    <h3>Lawn Maintenance</h3>
+                    <p>Regular mowing, fertilization, and care to keep your lawn pristine.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-tree"></i></div>
+                    <h3>Tree & Shrub Care</h3>
+                    <p>Pruning, trimming, and health services for your largest plants.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Work</h2>
+                    <p>A glimpse into some of the beautiful gardens we've had the pleasure of creating and maintaining.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/4CAF50/FFFFFF?text=Garden+1" alt="Garden project 1"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/388E3C/FFFFFF?text=Garden+2" alt="Garden project 2"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/587467/FFFFFF?text=Garden+3" alt="Garden project 3"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/1C3B29/FFFFFF?text=Garden+4" alt="Garden project 4"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/E8F0E8/1C3B29?text=Garden+5" alt="Garden project 5"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x400/81C784/FFFFFF?text=Garden+6" alt="Garden project 6"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GreenLeaf Gardening</h4>
+                    <p>Your local experts in creating and maintaining beautiful, thriving gardens. Let's grow together.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Landscape Design</a></li>
+                        <li><a href="#">Lawn Care</a></li>
+                        <li><a href="#">Planting Services</a></li>
+                        <li><a href="#">Seasonal Cleanup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Request a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GreenLeaf Gardening. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // --- Three.js Scene ---
+            const container = document.getElementById('hero-canvas-container');
+            let scene, camera, renderer, mainObject, particles;
+            const clock = new THREE.Clock();
+
+
+            function init() {
+                // Scene
+                scene = new THREE.Scene();
+
+                // Camera
+                camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.z = 8;
+
+                // Renderer
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
+
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                const pointLight = new THREE.PointLight(0x81C784, 1.5, 100);
+                pointLight.position.set(0, 0, 5);
+                scene.add(pointLight);
+
+                // Create the "Unreal" Main Object
+                const geometry = new THREE.TorusKnotGeometry(2, 0.6, 100, 16);
+                const material = new THREE.MeshStandardMaterial({
+                    color: 0x388E3C, // --highlight-color
+                    metalness: 0.8,
+                    roughness: 0.2,
+                    emissive: 0x1C3B29,
+                    emissiveIntensity: 0.2
+                });
+                mainObject = new THREE.Mesh(geometry, material);
+                scene.add(mainObject);
+
+                // Create the "Wonderful" Particle System
+                const particlesGeometry = new THREE.BufferGeometry();
+                const particlesCount = 5000;
+                const posArray = new Float32Array(particlesCount * 3);
+
+                for(let i = 0; i < particlesCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 20;
+                }
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+                
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.02,
+                    color: 0x4CAF50,
+                    blending: THREE.AdditiveBlending,
+                    transparent: true,
+                    opacity: 0.8
+                });
+                particles = new THREE.Points(particlesGeometry, particlesMaterial);
+                scene.add(particles);
+
+
+                // Handle window resize
+                window.addEventListener('resize', onWindowResize, false);
+            }
+
+            function onWindowResize() {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // Animate the main object
+                if (mainObject) {
+                    mainObject.rotation.y = 0.2 * elapsedTime;
+                    mainObject.rotation.x = -0.2 * elapsedTime;
+                }
+                
+                // Animate particles
+                if (particles) {
+                    particles.rotation.y = -0.05 * elapsedTime;
+                }
+
+                renderer.render(scene, camera);
+            }
+
+            init();
+            animate();
+        });
+    </script>
+</body>
+</html>

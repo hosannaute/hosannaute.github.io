@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Analytics - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ========================================
+        CSS STYLES (DATA VISUALIZATION THEME)
+        ======================================== */
+        :root {
+            --bg-dark: #161B22;
+            --bg-card: #1F242C;
+            --text-primary: #CDD9E5;
+            --text-secondary: #7D8590;
+            --accent-teal: #39D3BB;
+            --accent-purple: #A277FF;
+            --border-color: rgba(125, 133, 144, 0.2);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: var(--accent-teal); transition: color 0.3s ease; }
+        a:hover { color: var(--text-primary); }
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* --- Layout --- */
+        .dashboard-layout {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: var(--bg-dark);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 2rem;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar-header {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .sidebar-header i {
+            color: var(--accent-purple);
+        }
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .sidebar-nav a.active, .sidebar-nav a:hover {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .sidebar-nav a i {
+            width: 20px;
+        }
+
+        /* --- Main Content --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .main-header h1 {
+            font-size: 2.5rem;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* --- Dashboard Grid --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .chart-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .chart-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            main {
+                width: 100%;
+                margin-left: 0;
+            }
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1001;
+            }
+        }
+        .menu-toggle { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <h2 class="sidebar-header"><i class="fas fa-chart-pie"></i> Quantum</h2>
+            <nav class="sidebar-nav">
+                <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="#"><i class="fas fa-flag"></i> Reports</a>
+                <a href="#"><i class="fas fa-users"></i> Teams</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <main>
+            <header class="main-header">
+                <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+                <h1>Dashboard</h1>
+                <div class="user-profile">
+                    <span>Jane Doe</span>
+                    <img src="https://placehold.co/100x100/A277FF/FFFFFF?text=JD" alt="User Profile">
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="chart-card full-width">
+                    <h3>Monthly Revenue</h3>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Traffic Sources</h3>
+                    <canvas id="trafficChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>User Demographics</h3>
+                    <canvas id="demographicsChart"></canvas>
+                </div>
+                <div class="chart-card full-width">
+                    <h3>Performance Metrics</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            if(menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+            }
+
+            // --- Chart.js Implementation ---
+            const chartOptions = {
+                plugins: {
+                    legend: { labels: { color: '#CDD9E5' } }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#7D8590' },
+                        grid: { color: 'rgba(125, 133, 144, 0.2)' }
+                    },
+                    x: {
+                        ticks: { color: '#7D8590' },
+                        grid: { color: 'rgba(125, 133, 144, 0.2)' }
+                    }
+                }
+            };
+
+            // 1. Revenue Chart (Line)
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    datasets: [{
+                        label: 'Revenue (USD)',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000, 28000, 35000],
+                        borderColor: '#39D3BB',
+                        backgroundColor: 'rgba(57, 211, 187, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // 2. Traffic Sources Chart (Doughnut)
+            const trafficCtx = document.getElementById('trafficChart').getContext('2d');
+            new Chart(trafficCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Organic', 'Direct', 'Referral', 'Social'],
+                    datasets: [{
+                        label: 'Traffic Sources',
+                        data: [45, 25, 15, 15],
+                        backgroundColor: ['#39D3BB', '#A277FF', '#58A6FF', '#FF7B72'],
+                        borderColor: '#1F242C',
+                        borderWidth: 4
+                    }]
+                },
+                options: { plugins: { legend: { position: 'right', labels: { color: '#CDD9E5' } } } }
+            });
+
+            // 3. Demographics Chart (Bar)
+            const demographicsCtx = document.getElementById('demographicsChart').getContext('2d');
+            new Chart(demographicsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['USA', 'Germany', 'UK', 'Japan', 'Canada', 'Brazil'],
+                    datasets: [{
+                        label: 'Active Users',
+                        data: [3500, 2200, 1800, 1500, 1200, 900],
+                        backgroundColor: '#58A6FF'
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // 4. Performance Chart (Radar)
+            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(performanceCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Speed', 'Usability', 'Reliability', 'Performance', 'Support', 'Features'],
+                    datasets: [{
+                        label: 'Q2 Score',
+                        data: [85, 90, 75, 88, 95, 80],
+                        fill: true,
+                        backgroundColor: 'rgba(162, 119, 255, 0.2)',
+                        borderColor: '#A277FF',
+                        pointBackgroundColor: '#A277FF',
+                    }]
+                },
+                options: {
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(125, 133, 144, 0.2)' },
+                            grid: { color: 'rgba(125, 133, 144, 0.2)' },
+                            pointLabels: { color: '#CDD9E5', font: { size: 14 } },
+                            ticks: { backdropColor: '#161B22', color: '#CDD9E5' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
