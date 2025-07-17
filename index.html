@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- THIS IS THE MOST IMPORTANT TAG FOR RESPONSIVENESS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hosanna Ute - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +12,7 @@
     <style>
         /* ========================================
         CSS STYLES
-        ========================================
-        */
+        ======================================== */
 
         /* --- Root Variables (Color Palette & Fonts) --- */
         :root {
@@ -87,9 +87,10 @@
         
         /* --- Layout & Helpers --- */
         .container {
-            padding: 6rem 5%;
-            max-width: 1200px;
+            width: 90%; /* Use a percentage for flexibility */
+            max-width: 1200px; /* Set a max-width for large screens */
             margin: 0 auto;
+            padding: 6rem 0; /* Adjust padding to be vertical only */
         }
 
         .section-divider {
@@ -119,7 +120,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(253, 248, 242, 0.85); /* Semi-transparent background */
+            background: rgba(253, 248, 242, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
@@ -174,6 +175,7 @@
         .menu-toggle {
             display: none; /* Hidden on desktop */
             cursor: pointer;
+            z-index: 1001; /* Ensure it's on top */
         }
 
         /* --- Hero Section --- */
@@ -188,6 +190,7 @@
             background-color: var(--bg-secondary);
             position: relative;
             overflow: hidden;
+            padding: 0 5%; /* Add padding for small screens */
         }
 
         .hero-content {
@@ -195,7 +198,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 2rem;
-            width: 90%;
+            width: 100%; /* Use full width of parent */
             max-width: 1100px;
             z-index: 2;
         }
@@ -206,14 +209,13 @@
 
         .hero-text h1 {
             font-family: var(--font-display);
-            font-size: clamp(4rem, 10vw, 8rem);
+            font-size: clamp(3rem, 10vw, 7rem); /* Responsive font size */
             line-height: 0.9;
             font-weight: 900;
             color: var(--text-primary);
             position: relative;
         }
         
-        /* Stacked text effect */
         .hero-text h1 span {
             display: block;
             position: relative;
@@ -308,6 +310,7 @@
             border-radius: 50px;
             font-weight: 600;
             transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 0.5rem; /* Add margin for stacking */
         }
 
         .linkedin-link:hover {
@@ -491,35 +494,40 @@
             font-size: 0.9rem;
         }
         
-        /* --- Responsive Design --- */
+        /* ======================================== */
+        /* --- RESPONSIVE DESIGN (MEDIA QUERIES) --- */
+        /* ======================================== */
+        
+        /* --- For tablets and smaller desktops --- */
         @media (max-width: 992px) {
             .hero-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack hero content */
                 text-align: center;
             }
             .hero-text {
                 text-align: center;
-                order: 2;
+                order: 2; /* Move text below image */
             }
             .hero-image-container {
                 order: 1;
                 margin-bottom: 2rem;
             }
             .about-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack about section */
             }
             .about-contact-card {
-                max-width: 350px;
+                max-width: 400px; /* Limit card width */
                 margin: 0 auto;
             }
             .details-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack details section */
             }
         }
 
+        /* --- For mobile phones --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Hide links for mobile */
+                display: none; /* Hide links by default */
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
@@ -527,16 +535,22 @@
                 width: 100%;
                 background: var(--bg-primary);
                 padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
             .nav-links.active {
-                display: flex;
+                display: flex; /* Show when active */
             }
             .menu-toggle {
                 display: block; /* Show hamburger menu */
-                z-index: 1001;
             }
             .skills-heading {
-                text-align: left;
+                text-align: left; /* Adjust skills heading for mobile */
+            }
+            .about-intro {
+                text-align: center; /* Center align about text */
+            }
+            .container {
+                padding: 4rem 0; /* Reduce vertical padding on mobile */
             }
         }
     </style>
@@ -584,7 +598,7 @@
             </div>
             <div class="hero-image-container">
                 <!-- Replace this image with your own -->
-                <img src="image/port.jpg" alt="A portrait of Han Nguyen" class="hero-image">
+                <img src="image/port.jpg" alt="A portrait of Hosanna Ute" class="hero-image">
             </div>
         </div>
         <a href="#about" class="scroll-down">
@@ -601,7 +615,7 @@
             <div class="about-container">
                 <div class="about-intro">
                     <h2>Hello, I'm Hosanna!</h2>
-                    <p>Passionate about front-end development and digital design. I create responsive websites that are clean, user-friendly, and built for real-world use. Always learning. Always delivering.</p>
+                    <p>Passionate about front-end development and digital design. I create responsive websites that are clean, user-friendly, and built for real-world use. Always learning. Always delivering.</p>
                     <a href="https://www.linkedin.com/in/hosanna-ute-b8b1b1375?trk=contact-info" class="linkedin-link" target="_blank" id="linkedin-link">↗ View my LinkedIn</a>
                     <a href="https://x.com/adedelaneen?t=ErD7m49N2DsY3FowpGEIzA&s=08" class="linkedin-link" target="_blank" id="linkedin-link">↗ View my X</a>
                 </div>
@@ -754,8 +768,7 @@
     <script>
         /* ========================================
         JAVASCRIPT LOGIC
-        ========================================
-        */
+        ======================================== */
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -777,25 +790,25 @@
                 revealObserver.observe(el);
             });
 
-            // --- Hero Text Parallax on Mouse Move ---
-            const heroHeadline = document.getElementById('hero-headline');
-            const shadow1 = document.querySelector('.shadow-1');
-            const shadow2 = document.querySelector('.shadow-2');
-            const shadow3 = document.querySelector('.shadow-3');
+            // --- Hero Text Parallax on Mouse Move (Optional for mobile) ---
+            if (window.innerWidth > 992) { // Only run on larger screens
+                const heroHeadline = document.getElementById('hero-headline');
+                const shadow1 = document.querySelector('.shadow-1');
+                const shadow2 = document.querySelector('.shadow-2');
+                const shadow3 = document.querySelector('.shadow-3');
 
-            document.getElementById('hero').addEventListener('mousemove', function(e) {
-                const { clientX, clientY } = e;
-                const { offsetWidth, offsetHeight } = this;
-                
-                // Calculate movement based on cursor position from center
-                const moveX = (clientX - offsetWidth / 2) / (offsetWidth / 2);
-                const moveY = (clientY - offsetHeight / 2) / (offsetHeight / 2);
+                document.getElementById('hero').addEventListener('mousemove', function(e) {
+                    const { clientX, clientY } = e;
+                    const { offsetWidth, offsetHeight } = this;
+                    
+                    const moveX = (clientX - offsetWidth / 2) / (offsetWidth / 2);
+                    const moveY = (clientY - offsetHeight / 2) / (offsetHeight / 2);
 
-                // Apply transform to shadows
-                shadow1.style.transform = `translate(${4 + moveX * 2}px, ${4 + moveY * 2}px)`;
-                shadow2.style.transform = `translate(${8 + moveX * 4}px, ${8 + moveY * 4}px)`;
-                shadow3.style.transform = `translate(${12 + moveX * 6}px, ${12 + moveY * 6}px)`;
-            });
+                    shadow1.style.transform = `translate(${4 + moveX * 2}px, ${4 + moveY * 2}px)`;
+                    shadow2.style.transform = `translate(${8 + moveX * 4}px, ${8 + moveY * 4}px)`;
+                    shadow3.style.transform = `translate(${12 + moveX * 6}px, ${12 + moveY * 6}px)`;
+                });
+            }
 
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menu-toggle');
