@@ -32,18 +32,21 @@
             display: grid;
             place-items: center;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1rem; /* Add some padding for smaller screens */
         }
 
-        /* --- Phone Frame --- */
+        /* --- Phone Frame (Now flexible) --- */
         .phone-container {
-            width: 414px; /* iPhone 11 Pro Max width */
-            height: 896px; /* iPhone 11 Pro Max height */
+            width: 100%;
+            max-width: 414px; /* Max width for desktop view */
+            height: 896px;
+            max-height: 90vh; /* Ensure it fits on screen */
             background-color: #111;
             border-radius: 60px;
             padding: 15px;
             box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5), inset 0 0 0 2px #333;
             position: relative;
+            display: flex; /* Use flex to contain the screen */
         }
         .phone-screen {
             background-color: var(--app-bg);
@@ -60,7 +63,8 @@
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 210px;
+            width: 50%;
+            max-width: 210px;
             height: 30px;
             background-color: #111;
             border-radius: 0 0 20px 20px;
@@ -96,6 +100,7 @@
             height: 80px;
             border-top: 1px solid #e0e0e0;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
+            flex-shrink: 0; /* Prevent nav from shrinking */
         }
         .nav-item {
             display: flex;
@@ -152,6 +157,7 @@
             border-radius: 50%;
             display: grid;
             place-items: center;
+            flex-shrink: 0;
         }
         .session-info h4 {
             font-weight: 700;
@@ -160,6 +166,32 @@
         .session-info p {
             color: var(--text-light);
             font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 480px) {
+            body {
+                padding: 0; /* Remove body padding on small screens */
+            }
+            .phone-container {
+                width: 100%;
+                height: 100vh;
+                max-height: none;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            .phone-screen {
+                border-radius: 0;
+            }
+            .phone-notch {
+                top: 0;
+                border-radius: 0;
+                height: 35px; /* Adjust notch for edge-to-edge screens */
+            }
+            .app-page {
+                padding-top: 3rem; /* Add padding to avoid notch */
+            }
         }
     </style>
 </head>
@@ -173,7 +205,7 @@
                 <div class="app-page active" id="home-page">
                     <h1 class="page-title">Today</h1>
                     <div class="welcome-card">
-                        <h3>Welcome Back, Hosanna</h3>
+                        <h3>Welcome Back, Jane</h3>
                         <p>Ready for your daily moment of calm?</p>
                     </div>
                     
@@ -217,7 +249,7 @@
                     <h1 class="page-title">Profile</h1>
                     <div class="session-card">
                         <div class="session-icon"><i class="fas fa-user"></i></div>
-                        <div class="session-info"><h4>Hosanna Ute</h4><p>Member since 2025</p></div>
+                        <div class="session-info"><h4>Jane Doe</h4><p>Member since 2024</p></div>
                     </div>
                      <div class="session-card">
                         <div class="session-icon"><i class="fas fa-chart-bar"></i></div>
