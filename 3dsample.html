@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Arena - Forge Your Legend</title>
+    <title>Nexus Gaming - Enter the Arena</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Exo+2:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         /* ========================================
-        CSS STYLES (CRIMSON GAMING THEME)
+        CSS STYLES (NEON GAMING THEME)
         ======================================== */
         :root {
-            --bg-darkest: #0B0A0A;      /* Near Black */
-            --bg-dark: #1C1C1C;         /* Dark Charcoal */
-            --text-primary: #F5F5F5;    /* Bright White/Grey */
-            --text-secondary: #A9A9A9;  /* Medium Grey */
-            --accent-red: #E50914;      /* Bright, Punchy Red */
-            --accent-red-dark: #B20710; /* Darker, Richer Red */
-            --card-bg: rgba(28, 28, 28, 0.8); /* Translucent card */
-            --font-display: 'Teko', sans-serif;
-            --font-body: 'Exo 2', sans-serif;
+            --bg-dark-void: #0D0D1A;    /* Deepest Space */
+            --bg-dark-blue: #1A1A2E;    /* Dark Blue Nebula */
+            --text-primary: #E0E0E0;    /* Off-white for readability */
+            --text-secondary: #A0A0B5;  /* Muted grey/purple */
+            --accent-cyan: #00FFFF;     /* Bright Neon Cyan */
+            --accent-magenta: #FF00FF;  /* Bright Neon Magenta */
+            --card-bg: rgba(26, 26, 46, 0.7); /* Translucent card */
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: var(--font-body);
-            background-color: var(--bg-darkest);
+            background-color: var(--bg-dark-void);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
-        a { text-decoration: none; color: var(--accent-red); transition: color 0.3s ease; }
-        a:hover { color: var(--text-primary); }
+        a { text-decoration: none; color: var(--accent-cyan); transition: color 0.3s ease; }
+        a:hover { color: var(--accent-magenta); }
         ul { list-style: none; }
         img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
         
@@ -42,12 +42,11 @@
             font-family: var(--font-display);
             color: var(--text-primary);
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            text-shadow: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan);
         }
 
         .container {
-            padding: 0 5%;
+            width: 90%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -59,34 +58,23 @@
         
         .btn {
             display: inline-block;
-            background: var(--accent-red);
-            color: #fff;
-            padding: 16px 36px;
+            background: transparent;
+            color: var(--accent-cyan);
+            padding: 14px 32px;
             border-radius: 5px;
+            border: 2px solid var(--accent-cyan);
             font-weight: 700;
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
             text-transform: uppercase;
+            font-family: var(--font-display);
+            letter-spacing: 1.5px;
             transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 0 15px rgba(229, 9, 20, 0.5), inset 0 0 5px rgba(255,255,255,0.3);
+            box-shadow: 0 0 15px var(--accent-cyan);
         }
         .btn:hover {
-            background-color: var(--accent-red-dark);
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.8);
-            transform: scale(1.05) translateY(-3px);
-        }
-
-        /* --- ADVANCED ANIMATIONS --- */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1), transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark-blue);
+            box-shadow: 0 0 25px var(--accent-cyan), 0 0 40px var(--accent-magenta);
+            transform: translateY(-3px);
         }
 
         /* --- Navigation --- */
@@ -95,10 +83,10 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(11, 10, 10, 0.8);
+            background: rgba(13, 13, 26, 0.8);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(229, 9, 20, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
         }
         .nav-container {
             display: flex;
@@ -106,10 +94,10 @@
             align-items: center;
             height: 80px;
         }
-        .logo { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+        .logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: #fff; text-shadow: 0 0 10px var(--accent-cyan);}
         .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-        .nav-links a { color: var(--text-primary); font-weight: 700; font-size: 1.1rem; letter-spacing: 1px;}
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+        .nav-links a { color: var(--text-primary); font-weight: 600; font-size: 1rem; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; z-index: 1001; }
 
         /* --- Hero Section --- */
         #hero {
@@ -118,27 +106,24 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px;
+            padding: 80px 5% 0;
             overflow: hidden;
         }
         .hero-content {
             z-index: 10;
         }
         .hero-content h1 {
-            font-size: clamp(4rem, 10vw, 8rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             line-height: 1;
             margin-bottom: 1rem;
-            color: #fff;
-            text-shadow: 0 0 10px var(--accent-red), 0 0 30px var(--accent-red);
         }
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 2.5rem;
             color: var(--text-secondary);
             font-weight: 400;
-            font-family: var(--font-body);
         }
         #hero-canvas-container {
             position: absolute;
@@ -155,63 +140,52 @@
         }
 
         /* --- Games Section --- */
-        #games {
-            background-color: var(--bg-dark);
-        }
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         .section-header h2 {
-            font-size: 4rem;
+            font-size: 3rem;
         }
         .section-header p {
             max-width: 600px;
             margin: 0.5rem auto 0;
             color: var(--text-secondary);
-            font-size: 1.2rem;
         }
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         .game-card {
             background: var(--card-bg);
-            border: 1px solid rgba(229, 9, 20, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .game-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 0 30px rgba(229, 9, 20, 0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px var(--accent-magenta);
         }
-        .game-card-img {
-            height: 450px;
-            overflow: hidden;
-        }
-        .game-card-img img {
+        .game-card img {
             width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .game-card:hover img {
-            transform: scale(1.1);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
         }
         .game-card-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
         .game-card-content h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
         
         /* --- Footer --- */
         footer {
             background-color: #000;
-            border-top: 1px solid rgba(229, 9, 20, 0.3);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
             padding: 4rem 0 2rem;
         }
         .footer-grid {
@@ -221,7 +195,7 @@
             margin-bottom: 3rem;
         }
         .footer-col h4 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
         }
         .footer-col ul li {
@@ -239,18 +213,44 @@
 
         /* --- Responsive --- */
         @media (max-width: 992px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .nav-links.active {
-                display: flex;
+            .nav-links {
+                display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background: var(--bg-dark);
+                background: var(--bg-dark-blue);
                 padding: 2rem;
                 gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 4rem 0;
+            }
+            #hero-canvas-container {
+                opacity: 0.3; /* Make 3D background more subtle on mobile */
             }
         }
     </style>
@@ -260,13 +260,13 @@
     <!-- HEADER & NAVIGATION -->
     <nav id="navbar">
         <div class="container nav-container">
-            <div class="logo">CRIMSON ARENA</div>
+            <div class="logo">NEXUS</div>
             <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#games">Games</a></li>
-                <li><a href="#">Esports</a></li>
+                <li><a href="#">Tournaments</a></li>
+                <li><a href="#">Streams</a></li>
                 <li><a href="#">Community</a></li>
-                <li><a href="#">Store</a></li>
             </ul>
         </div>
     </nav>
@@ -275,39 +275,41 @@
     <section id="hero">
         <div id="hero-canvas-container"></div>
         <div class="hero-content">
-            <h1>FORGE YOUR LEGEND</h1>
-            <p>Step into the Crimson Arena. Where champions are born and legends are forged in the fires of competition.</p>
-            <a href="#" class="btn">Enter Now</a>
+            <h1>ENTER THE ARENA</h1>
+            <p>Join millions of players in the ultimate competitive gaming universe. Explore new worlds, conquer challenges, and forge your legacy.</p>
+            <a href="#" class="btn">Launch Nexus</a>
         </div>
     </section>
 
     <main>
         <!-- FEATURED GAMES SECTION -->
-        <section id="games" class="container">
-            <div class="section-header reveal-on-scroll">
-                <h2>Our Battlegrounds</h2>
-                <p>Choose your battlefield. Master your craft. Dominate the competition.</p>
-            </div>
-            <div class="games-grid">
-                <div class="game-card reveal-on-scroll">
-                    <div class="game-card-img"><img src="https://placehold.co/600x800/1C1C1C/E50914?text=VOLT+STRIKE" alt="Game 1"></div>
-                    <div class="game-card-content">
-                        <h3>VOLT STRIKE</h3>
-                        <p class="text-secondary">Lightning-fast 5v5 hero shooter. Precision gunplay meets reality-bending abilities.</p>
-                    </div>
+        <section id="games">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Games</h2>
+                    <p>Dive into our curated selection of top-tier competitive and cooperative titles.</p>
                 </div>
-                <div class="game-card reveal-on-scroll" style="transition-delay: 0.2s;">
-                    <div class="game-card-img"><img src="https://placehold.co/600x800/1C1C1C/F5F5F5?text=IRON+SAGA" alt="Game 2"></div>
-                    <div class="game-card-content">
-                        <h3>IRON SAGA</h3>
-                        <p class="text-secondary">A dark fantasy action-RPG. Battle corrupted gods and ancient evils in a vast, unforgiving world.</p>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <img src="https://placehold.co/600x800/1A1A2E/00FFFF?text=CYBERPULSE" alt="Game 1">
+                        <div class="game-card-content">
+                            <h3>Cyberpulse</h3>
+                            <p class="text-secondary">A high-octane tactical shooter set in a dystopian future. Master unique abilities and outsmart your opponents.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="game-card reveal-on-scroll" style="transition-delay: 0.4s;">
-                    <div class="game-card-img"><img src="https://placehold.co/600x800/1C1C1C/A9A9A9?text=STARFALL" alt="Game 3"></div>
-                    <div class="game-card-content">
-                        <h3>STARFALL</h3>
-                        <p class="text-secondary">Epic-scale space combat simulator. Command massive fleets or pilot nimble fighters in galactic warfare.</p>
+                    <div class="game-card">
+                        <img src="https://placehold.co/600x800/1A1A2E/FF00FF?text=AETHERIUM" alt="Game 2">
+                        <div class="game-card-content">
+                            <h3>Aetherium</h3>
+                            <p class="text-secondary">An expansive fantasy MMORPG where you shape the world with powerful magic and legendary artifacts.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="https://placehold.co/600x800/1A1A2E/FFFFFF?text=VOID+RACERS" alt="Game 3">
+                        <div class="game-card-content">
+                            <h3>Void Racers</h3>
+                            <p class="text-secondary">Defy gravity in this futuristic anti-gravity racing game. Compete on mind-bending tracks across the galaxy.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -319,8 +321,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>CRIMSON ARENA</h4>
-                    <p class="text-secondary">This is where legends are made.</p>
+                    <h4>NEXUS GAMING</h4>
+                    <p class="text-secondary">The future of competitive gaming is here. Join us.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Explore</h4>
@@ -349,127 +351,100 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Crimson Arena Inc. All Rights Reserved.</p>
+                <p>&copy; 2025 Nexus Gaming Corporation. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Three.js Library -->
+    <!-- Three.js Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menu-toggle');
             const navLinks = document.getElementById('nav-links');
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-
-            // --- Advanced Scroll Animation ---
-            const scrollObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
+            if(menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
                 });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                scrollObserver.observe(el);
-            });
+            }
 
             // --- Three.js Scene ---
             const container = document.getElementById('hero-canvas-container');
-            let scene, camera, renderer, crystal, particles;
+            let scene, camera, renderer, mainObject, particles, composer;
             const clock = new THREE.Clock();
-            const mouse = new THREE.Vector2();
 
             function init() {
                 scene = new THREE.Scene();
                 camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-                camera.position.z = 6;
+                camera.position.z = 5;
 
                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setSize(container.clientWidth, container.clientHeight);
                 renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.toneMapping = THREE.ReinhardToneMapping;
                 container.appendChild(renderer.domElement);
                 
-                // Lighting
-                const pointLight1 = new THREE.PointLight(0xff0000, 1, 100);
-                pointLight1.position.set(-5, 5, 5);
-                scene.add(pointLight1);
+                const renderScene = new THREE.RenderPass(scene, camera);
+                const bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+                bloomPass.threshold = 0;
+                bloomPass.strength = 1.5;
+                bloomPass.radius = 0.5;
+                composer = new THREE.EffectComposer(renderer);
+                composer.addPass(renderScene);
+                composer.addPass(bloomPass);
 
-                const pointLight2 = new THREE.PointLight(0xff0000, 0.5, 100);
-                pointLight2.position.set(5, -5, 5);
-                scene.add(pointLight2);
+                const geometry = new THREE.IcosahedronGeometry(1.5, 0);
+                const material = new THREE.MeshBasicMaterial({ color: varToHex('--accent-cyan'), wireframe: true });
+                mainObject = new THREE.Mesh(geometry, material);
+                scene.add(mainObject);
 
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-                scene.add(ambientLight);
-
-                // "Unreal" Crystal Object
-                const geometry = new THREE.OctahedronGeometry(2, 1);
-                const material = new THREE.MeshStandardMaterial({
-                    color: 0xE50914,
-                    metalness: 0.9,
-                    roughness: 0.1,
-                    emissive: 0xB20710,
-                    emissiveIntensity: 0.5,
-                    transparent: true,
-                    opacity: 0.9
-                });
-                crystal = new THREE.Mesh(geometry, material);
-                scene.add(crystal);
-
-                // "Wonderful" Particle System
                 const particlesGeometry = new THREE.BufferGeometry();
-                const particlesCount = 10000;
+                const particlesCount = 7000;
                 const posArray = new Float32Array(particlesCount * 3);
                 for(let i = 0; i < particlesCount * 3; i++) {
-                    posArray[i] = (Math.random() - 0.5) * 25;
+                    posArray[i] = (Math.random() - 0.5) * 15;
                 }
                 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
                 const particlesMaterial = new THREE.PointsMaterial({
-                    size: 0.01,
-                    color: 0xffffff,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    opacity: 0.5
+                    size: 0.015,
+                    color: varToHex('--accent-magenta'),
                 });
                 particles = new THREE.Points(particlesGeometry, particlesMaterial);
                 scene.add(particles);
 
                 window.addEventListener('resize', onWindowResize, false);
-                document.addEventListener('mousemove', onMouseMove, false);
+            }
+            
+            function varToHex(varName) {
+                const colorStr = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+                if (colorStr.startsWith('#')) {
+                    return parseInt(colorStr.substring(1), 16);
+                }
+                return 0xffffff;
             }
 
             function onWindowResize() {
                 camera.aspect = container.clientWidth / container.clientHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(container.clientWidth, container.clientHeight);
-            }
-
-            function onMouseMove(event) {
-                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                composer.setSize(container.clientWidth, container.clientHeight);
             }
 
             function animate() {
                 requestAnimationFrame(animate);
                 const elapsedTime = clock.getElapsedTime();
 
-                crystal.rotation.y = 0.2 * elapsedTime;
-                crystal.rotation.x = 0.1 * elapsedTime;
+                mainObject.rotation.y = 0.3 * elapsedTime;
+                mainObject.rotation.x = 0.3 * elapsedTime;
                 
-                particles.rotation.y = -0.02 * elapsedTime;
-                
-                // Make camera follow mouse
-                camera.position.x += (mouse.x * 2 - camera.position.x) * 0.02;
-                camera.position.y += (mouse.y * 2 - camera.position.y) * 0.02;
-                camera.lookAt(scene.position);
+                particles.rotation.y = -0.1 * elapsedTime;
 
-                renderer.render(scene, camera);
+                composer.render();
             }
 
             init();
