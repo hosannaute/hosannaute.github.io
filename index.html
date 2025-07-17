@@ -413,7 +413,7 @@
         .skills-grid {
             display: flex;
             gap: 1rem;
-            flex-wrap: wrap; /* Allow logos to wrap on small screens */
+            flex-wrap: wrap;
         }
 
         .skill-badge {
@@ -423,13 +423,13 @@
             border-radius: 5px;
             display: grid;
             place-items: center;
-            padding: 8px; /* Add padding for the logos */
+            padding: 8px;
         }
 
         .skill-badge img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensure logos fit well */
+            object-fit: contain;
         }
         
         .skills-tags .skill-tag {
@@ -479,40 +479,14 @@
             font-size: 0.9rem;
         }
 
-        /* --- NEW: Featured Work Section --- */
-        #work .section-title {
-            display: block;
+        /* --- NEW: Work CTA Section --- */
+        #work-cta {
             text-align: center;
+            padding: 0; /* Remove padding to bring it closer */
         }
-        .project-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        .project-layout:last-child {
-            margin-bottom: 0;
-        }
-        .project-info h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-        }
-        .project-iframe-container {
-            position: relative;
-            width: 100%;
-            padding-top: 65%;
-            background-color: var(--bg-secondary);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        .project-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        #work-cta .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
         }
 
         footer {
@@ -525,7 +499,7 @@
         /* --- RESPONSIVE DESIGN (MEDIA QUERIES) --- */
         
         @media (max-width: 992px) {
-            .hero-content, .about-container, .details-container, .project-layout {
+            .hero-content, .about-container, .details-container {
                 grid-template-columns: 1fr;
             }
             .hero-text {
@@ -539,13 +513,6 @@
             .about-contact-card {
                 max-width: 400px;
                 margin: 0 auto;
-            }
-            .project-layout .project-info {
-                order: 2;
-                text-align: center;
-            }
-            .project-layout .project-iframe-container {
-                order: 1;
             }
         }
 
@@ -592,7 +559,6 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About me</a></li>
                 <li><a href="#resume">Resume</a></li>
-                <li><a href="#work" class="cta-button">My Works</a></li>
             </ul>
         </div>
     </nav>
@@ -620,6 +586,11 @@
             <span>↓</span>
         </a>
     </header>
+
+    <!-- NEW "MY WORKS" BUTTON SECTION -->
+    <section id="work-cta" class="container reveal">
+        <a href="project.html" class="cta-button">View My Works</a>
+    </section>
 
     <main>
         <section id="about" class="container reveal">
@@ -675,7 +646,6 @@
                     <h2 class="skills-heading">RESUME<br>Technical Skills</h2>
                     <div class="skills-category">
                         <h4>Software Skills</h4>
-                        <!-- UPDATED SKILL BADGES WITH LOGOS -->
                         <div class="skills-grid">
                             <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Logo"></div>
                             <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Logo"></div>
@@ -694,31 +664,6 @@
                         <span class="skill-tag">UI/UX design</span>
                         <span class="skill-tag">User Research</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="section-divider">
-        
-        <!-- NEW FEATURED PROJECTS SECTION -->
-        <section id="work" class="container reveal">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-layout">
-                <div class="project-info">
-                    <h2>University Website</h2>
-                    <p>A clean and professional design for an educational institution, focusing on clear navigation and a modern aesthetic.</p>
-                </div>
-                <div class="project-iframe-container">
-                    <iframe src="unisample.html" title="University Website Project Sample" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="project-layout">
-                 <div class="project-iframe-container">
-                    <iframe src="3dsample.html" title="Gaming Website Project Sample" loading="lazy"></iframe>
-                </div>
-                <div class="project-info">
-                    <h2>3D Gaming Portal</h2>
-                    <p>A stylized HTML5 site for a gaming platform, featuring a futuristic theme and an interactive 3D hero object.</p>
                 </div>
             </div>
         </section>
