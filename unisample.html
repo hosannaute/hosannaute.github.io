@@ -15,12 +15,12 @@
         CSS STYLES (GREY UNIVERSITY THEME)
         ======================================== */
         :root {
-            --bg-primary: #F8F9FA;      /* Very Light Grey */
-            --bg-secondary: #E9ECEF;    /* Light Grey */
-            --text-primary: #212529;    /* Charcoal Grey */
-            --text-secondary: #6C757D;  /* Medium Grey */
-            --accent-color: #007BFF;    /* A strong blue for highlights */
-            --highlight-color: #0056b3; /* A darker blue for hover */
+            --bg-primary: #F8F9FA;
+            --bg-secondary: #E9ECEF;
+            --text-primary: #212529;
+            --text-secondary: #6C757D;
+            --accent-color: #007BFF;
+            --highlight-color: #0056b3;
             --card-bg: #FFFFFF;
             --font-primary: 'Poppins', sans-serif;
             --font-serif: 'Lora', serif;
@@ -46,7 +46,7 @@
         }
 
         .container {
-            padding: 0 5%;
+            width: 90%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -75,7 +75,7 @@
 
         /* --- Navigation --- */
         nav {
-            position: fixed;
+            position: sticky;
             top: 0;
             left: 0;
             width: 100%;
@@ -99,7 +99,8 @@
         /* --- Hero Section --- */
         #hero {
             background: linear-gradient(rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.6)), url('https://placehold.co/1920x1080/6C757D/FFFFFF?text=University+Campus') no-repeat center center/cover;
-            height: 100vh;
+            height: 80vh; /* Adjusted height */
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -236,12 +237,10 @@
             font-size: 0.9rem;
         }
 
-        /* --- Responsive --- */
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 992px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .nav-links.active {
-                display: flex;
+            .nav-links {
+                display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 80px;
@@ -252,6 +251,29 @@
                 gap: 1.5rem;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 0;
+            }
         }
 
     </style>
@@ -261,7 +283,7 @@
     <!-- HEADER & NAVIGATION -->
     <nav id="navbar">
         <div class="container nav-container">
-            <div class="logo"><a href="#" style="color: var(--text-primary);">Northwood Uni</a></div>
+            <div class="logo">Northwood Uni</div>
             <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#">Academics</a></li>
@@ -399,9 +421,11 @@
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menu-toggle');
             const navLinks = document.getElementById('nav-links');
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
         });
     </script>
 </body>
