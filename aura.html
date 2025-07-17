@@ -45,7 +45,7 @@
         }
 
         .container {
-            padding: 0 5%;
+            width: 90%;
             max-width: 1600px;
             margin: 0 auto;
         }
@@ -103,12 +103,12 @@
         .nav-links { display: flex; align-items: center; gap: 2rem; }
         .nav-links a { color: var(--text-primary); font-weight: 600; }
         .nav-icons { display: flex; align-items: center; gap: 1.5rem; font-size: 1.2rem; }
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; z-index: 1001; }
 
         /* --- Hero Section --- */
         #hero {
             padding-top: 80px;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             background-color: var(--bg-light);
@@ -190,13 +190,14 @@
         }
 
         /* --- Promo Section --- */
-        #promo {
+        #promo-section {
+            padding: 0 5%; /* Use padding on section instead of margin on card */
+        }
+        .promo-card {
             background-color: var(--bg-dark);
             color: var(--text-light);
             border-radius: 20px;
-            margin: 0 5%;
-        }
-        .promo-layout {
+            padding: 5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -247,19 +248,40 @@
 
         /* --- Responsive --- */
         @media (max-width: 992px) {
-            .hero-layout, .promo-layout {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                width: 100%;
+                background: var(--bg-light);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-layout, .promo-card {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             .hero-content p { margin-left: auto; margin-right: auto; }
-            .hero-image { margin-top: 3rem; }
-            .promo-image { order: -1; }
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .nav-links.active {
-                display: flex; flex-direction: column; position: absolute;
-                top: 80px; left: 0; width: 100%;
-                background: var(--bg-light); padding: 2rem; gap: 1.5rem;
+            .hero-image { margin-top: 3rem; order: -1; } /* Image on top on mobile */
+            .promo-image { order: -1; margin-bottom: 2rem; }
+            .promo-card { padding: 3rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .section-header h2, .promo-content h2 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 4rem 0;
             }
         }
     </style>
@@ -270,6 +292,11 @@
     <nav id="navbar">
         <div class="container nav-container">
             <div class="logo">AuraBlue</div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
             <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#">New Arrivals</a></li>
@@ -277,11 +304,6 @@
                 <li><a href="#">Collections</a></li>
                 <li><a href="#">Sale</a></li>
             </ul>
-            <div class="nav-icons">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
-                <a href="#"><i class="fas fa-shopping-bag"></i></a>
-            </div>
         </div>
     </nav>
 
@@ -338,8 +360,8 @@
         </section>
 
         <!-- PROMO SECTION -->
-        <section id="promo" class="container reveal-up">
-            <div class="promo-layout">
+        <section id="promo-section" class="container">
+            <div class="promo-card reveal-up">
                 <div class="promo-content">
                     <h2>The Sound of Tomorrow</h2>
                     <p>Experience immersive, high-fidelity audio with the new Aura Headphones. Noise-cancelling technology meets unparalleled comfort and design.</p>
