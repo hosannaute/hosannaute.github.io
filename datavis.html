@@ -44,6 +44,7 @@
         /* --- Layout --- */
         .dashboard-layout {
             display: flex;
+            min-height: 100vh;
         }
         .sidebar {
             width: 250px;
@@ -54,23 +55,33 @@
             position: fixed;
             left: 0;
             top: 0;
-            transition: transform 0.3s ease-in-out; /* Added for smooth transition */
+            transition: transform 0.3s ease-in-out;
             z-index: 1000;
+            overflow-y: auto; /* Allow scrolling if sidebar is tall */
         }
         main {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 2rem;
-            transition: margin-left 0.3s ease-in-out; /* Added for smooth transition */
+            transition: margin-left 0.3s ease-in-out;
         }
 
         /* --- Sidebar --- */
         .sidebar-header {
             font-size: 1.5rem;
             margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .sidebar-header i {
             color: var(--accent-purple);
+        }
+        .sidebar-close {
+            display: none; /* Hidden on desktop */
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
         }
         .sidebar-nav a {
             display: flex;
@@ -109,12 +120,14 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
+            object-fit: cover;
         }
 
         /* --- Dashboard Grid --- */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            /* FIXED: Lowered minmax to prevent overflow on small mobile screens */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
         .chart-card {
@@ -122,17 +135,28 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 1.5rem;
+            /* FIXED: Essential for Chart.js maintainAspectRatio: false to work */
+            position: relative;
+            height: 400px; 
+            display: flex;
+            flex-direction: column;
         }
         .chart-card h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        .chart-container {
+            flex-grow: 1;
+            position: relative;
+            min-height: 0; /* Important for flex/grid children */
         }
         .chart-card.full-width {
             grid-column: 1 / -1;
         }
         
         /* --- Responsive Design --- */
-        .menu-toggle { display: none; } /* Hidden by default */
+        .menu-toggle { display: none; }
 
         @media (max-width: 992px) {
             .sidebar {
@@ -140,7 +164,7 @@
             }
             .sidebar.active {
                 transform: translateX(0);
-                box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+                box-shadow: 10px 0 30px rgba(0,0,0,0.5);
             }
             main {
                 width: 100%;
@@ -152,6 +176,9 @@
                 cursor: pointer;
                 color: var(--text-secondary);
             }
+            .sidebar-close {
+                display: block; /* Visible on mobile */
+            }
             .main-header {
                 gap: 1rem;
             }
@@ -161,10 +188,13 @@
                 padding: 1rem;
             }
             .main-header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .dashboard-grid {
-                grid-template-columns: 1fr; /* Force single column on small screens */
+                grid-template-columns: 1fr;
+            }
+            .chart-card {
+                height: 350px; /* Slightly shorter cards on mobile */
             }
         }
     </style>
@@ -173,7 +203,11 @@
 
     <div class="dashboard-layout">
         <aside class="sidebar" id="sidebar">
-            <h2 class="sidebar-header"><i class="fas fa-chart-pie"></i> Quantum</h2>
+            <div class="sidebar-header">
+                <div><i class="fas fa-chart-pie"></i> Quantum</div>
+                <!-- FIXED: Close button for mobile -->
+                <div class="sidebar-close" id="sidebar-close"><i class="fas fa-times"></i></div>
+            </div>
             <nav class="sidebar-nav">
                 <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
                 <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
@@ -188,7 +222,7 @@
                 <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
                 <h1>Dashboard</h1>
                 <div class="user-profile">
-                    <span>Jane Doe</span>
+                    <span>Hosanna Ute</span>
                     <img src="https://placehold.co/100x100/A277FF/FFFFFF?text=JD" alt="User Profile">
                 </div>
             </header>
@@ -196,19 +230,27 @@
             <div class="dashboard-grid">
                 <div class="chart-card full-width">
                     <h3>Monthly Revenue</h3>
-                    <canvas id="revenueChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
                 </div>
                 <div class="chart-card">
                     <h3>Traffic Sources</h3>
-                    <canvas id="trafficChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="trafficChart"></canvas>
+                    </div>
                 </div>
                 <div class="chart-card">
                     <h3>User Demographics</h3>
-                    <canvas id="demographicsChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="demographicsChart"></canvas>
+                    </div>
                 </div>
                 <div class="chart-card full-width">
                     <h3>Performance Metrics</h3>
-                    <canvas id="performanceChart"></canvas>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
                 </div>
             </div>
         </main>
@@ -221,12 +263,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             // --- Mobile Menu Toggle ---
             const menuToggle = document.getElementById('menu-toggle');
+            const sidebarClose = document.getElementById('sidebar-close');
             const sidebar = document.getElementById('sidebar');
+
             if(menuToggle) {
                 menuToggle.addEventListener('click', () => {
-                    sidebar.classList.toggle('active');
+                    sidebar.classList.add('active');
                 });
             }
+            
+            // FIXED: Close sidebar logic
+            if(sidebarClose) {
+                sidebarClose.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                });
+            }
+
+            // Close sidebar when clicking outside on mobile (optional UX improvement)
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992 && 
+                    sidebar.classList.contains('active') && 
+                    !sidebar.contains(e.target) && 
+                    !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
 
             // --- Chart.js Implementation ---
             const chartOptions = {
