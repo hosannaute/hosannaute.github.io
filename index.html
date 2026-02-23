@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hosanna Ute - Portfolio</title>
+    <title>Hosanna Ute - Software Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* ========================================
-           CSS VARIABLES (Original Colors Kept)
-        ======================================== */
         :root {
             --bg-primary: #FDF8F2;
             --bg-secondary: #EFE5D8;
@@ -25,19 +22,9 @@
             --shadow-hover: 0 20px 50px -10px rgba(74, 63, 53, 0.25);
         }
 
-        /* ========================================
-           RESET & BASE STYLES
-        ======================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
             font-family: var(--font-primary);
@@ -48,21 +35,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
-        }
-
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
         ul { list-style: none; }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        img { max-width: 100%; height: auto; display: block; }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: var(--font-display);
             color: var(--text-primary);
@@ -82,13 +58,12 @@
             position: absolute;
             bottom: -5px;
             left: 0;
-            width: 60px; /* Refined from % to px for consistency */
+            width: 60px;
             height: 3px;
             background-color: var(--highlight-color);
             border-radius: 2px;
         }
 
-        /* Layout Utilities */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -99,93 +74,23 @@
         .section-divider {
             border: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent); /* Softer divider */
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
             opacity: 0.3;
             max-width: 80%;
             margin: 0 auto;
         }
 
-        /* Animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ========================================
-           NAVIGATION
-        ======================================== */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(253, 248, 242, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(74, 63, 53, 0.05);
-            transition: padding 0.3s ease;
-        }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.4rem;
-            font-family: var(--font-display);
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--highlight-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* ========================================
-           HERO SECTION
-        ======================================== */
+        /* HERO */
         #hero {
             min-height: 100vh;
             display: flex;
@@ -196,7 +101,7 @@
             background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 20%);
             position: relative;
             overflow: hidden;
-            padding: 8rem 5% 4rem; /* Added top padding for fixed nav */
+            padding: 4rem 5%;
         }
 
         .hero-content {
@@ -210,25 +115,21 @@
         }
 
         .hero-text h1 {
-            font-size: clamp(3.5rem, 8vw, 6.5rem); /* Slightly adjusted sizing */
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
             line-height: 0.95;
             font-weight: 900;
             color: var(--text-primary);
             position: relative;
             margin-bottom: 1.5rem;
         }
-        
-        .hero-text h1 span {
-            display: block;
-            position: relative;
-        }
 
-        /* Parallax text styling */
+        .hero-text h1 span { display: block; position: relative; }
+
         .hero-text h1 .shadow-text {
-            color: rgba(74, 63, 53, 0.08); /* More subtle shadow */
+            color: rgba(74, 63, 53, 0.08);
             position: absolute;
             z-index: -1;
-            transition: transform 0.1s linear; /* Smoother follow */
+            transition: transform 0.1s linear;
             pointer-events: none;
             user-select: none;
         }
@@ -242,10 +143,8 @@
             border-left: 3px solid var(--accent-color);
             padding-left: 1.5rem;
         }
-        
-        .hero-details p {
-            margin-bottom: 0.8rem;
-        }
+
+        .hero-details p { margin-bottom: 0.8rem; }
 
         .hero-image-container {
             position: relative;
@@ -254,7 +153,6 @@
             align-items: center;
         }
 
-        /* Simple float animation for image */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
@@ -266,10 +164,10 @@
             max-width: 380px;
             height: 480px;
             object-fit: cover;
-            border-radius: 20px 0 20px 0; /* Modern stylized radius */
+            border-radius: 20px 0 20px 0;
             box-shadow: var(--shadow-soft);
             animation: float 6s ease-in-out infinite;
-            background-color: #ddd; /* Fallback color */
+            background-color: #ddd;
         }
 
         .scroll-down {
@@ -287,6 +185,7 @@
             color: var(--text-primary);
             opacity: 0.7;
             animation: bounce 2s infinite;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -295,35 +194,9 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* ========================================
-           CTA SECTION
-        ======================================== */
-        #work-cta {
-            text-align: center;
-            padding: 3rem 0 6rem;
-        }
 
-        .cta-button {
-            display: inline-block;
-            background-color: var(--highlight-color);
-            color: #fff !important;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
-            transition: all 0.3s ease;
-        }
 
-        .cta-button:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(169, 135, 104, 0.4);
-        }
-
-        /* ========================================
-           ABOUT SECTION
-        ======================================== */
+        /* ABOUT */
         .about-container {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -331,17 +204,8 @@
             align-items: center;
         }
 
-        .about-intro h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-intro p {
-            max-width: 90%;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+        .about-intro h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+        .about-intro p { max-width: 90%; margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9; }
 
         .social-btn {
             display: inline-flex;
@@ -373,22 +237,14 @@
             transition: transform 0.3s ease;
         }
 
-        .about-contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .contact-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            background-color: #eee;
-        }
+        .about-contact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+        .contact-image { width: 100%; height: 350px; object-fit: cover; background-color: #eee; }
 
         .contact-details {
             padding: 1.5rem;
             position: relative;
-            margin-top: -30px; /* Overlap effect */
+            margin-top: -30px;
             background: var(--card-bg);
             width: 85%;
             margin-left: auto;
@@ -397,16 +253,8 @@
             box-shadow: 0 -5px 20px rgba(0,0,0,0.03);
         }
 
-        .contact-details h3 {
-            margin: 1rem 0 0.5rem;
-            font-size: 1.5rem;
-        }
-        
-        .contact-details p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #666;
-        }
+        .contact-details h3 { margin: 1rem 0 0.5rem; font-size: 1.5rem; }
+        .contact-details p { font-size: 0.95rem; line-height: 1.8; color: #666; }
 
         .tag {
             display: inline-block;
@@ -421,71 +269,73 @@
         .date-tag { background-color: var(--bg-secondary); color: var(--text-primary); }
         .nationality-tag { background-color: var(--text-primary); color: white; }
 
-        /* ========================================
-           RESUME & SKILLS
-        ======================================== */
-        .resume-grid {
+        /* PROJECTS */
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        /* Improved Timeline Styling */
-        .timeline-container {
-            position: relative;
-            padding-left: 20px; /* Space for line */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        
+
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
+        .project-title { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .project-desc { font-size: 0.95rem; color: #555; margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-tech { margin-bottom: 1.5rem; }
+
+        .project-link {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        .project-link:hover { color: var(--accent-color); }
+
+        /* RESUME */
+        .resume-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+
+        .timeline-container { position: relative; padding-left: 20px; }
         .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--bg-secondary);
+            content: ''; position: absolute; left: 0; top: 10px; bottom: 0;
+            width: 2px; background-color: var(--bg-secondary);
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 25px;
-        }
-
-        /* The dot */
+        .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 25px; }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -29px; /* Align with line */
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background-color: var(--bg-primary); /* Center color */
+            content: ''; position: absolute; left: -29px; top: 5px;
+            width: 12px; height: 12px;
+            background-color: var(--bg-primary);
             border: 4px solid var(--highlight-color);
-            border-radius: 50%;
-            z-index: 2;
+            border-radius: 50%; z-index: 2;
             transition: background-color 0.3s ease;
         }
-        
-        .timeline-item:hover::before {
-            background-color: var(--accent-color);
-        }
-        
-        .timeline-item h4 {
-            font-size: 1.1rem;
-            font-family: var(--font-primary);
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
+        .timeline-item:hover::before { background-color: var(--accent-color); }
+        .timeline-item h4 { font-size: 1.1rem; font-family: var(--font-primary); font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
+        .timeline-item p { font-size: 0.9rem; color: #666; margin: 0; }
 
-        .timeline-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 0;
-        }
-
-        /* Tag Cloud */
         .tags { margin-top: 1.5rem; }
         .tag-pill {
             display: inline-block;
@@ -497,210 +347,86 @@
             margin: 0 0.3rem 0.5rem 0;
             transition: all 0.2s;
         }
-        .tag-pill:hover {
-            background-color: var(--bg-secondary);
-            border-color: var(--bg-secondary);
-        }
+        .tag-pill:hover { background-color: var(--bg-secondary); border-color: var(--bg-secondary); }
 
-        /* Skills Styling */
         .skills-heading {
-            line-height: 1.2;
-            text-align: right;
-            color: var(--bg-secondary);
-            /* Outline effect */
-            -webkit-text-stroke: 2px var(--accent-color);
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-        
-        .skills-category h4 {
-            margin-bottom: 1.2rem;
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .skills-category h4::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 5px;
-            background-color: var(--highlight-color);
-            border-radius: 50%;
+            line-height: 1.2; text-align: right;
+            color: var(--bg-secondary); -webkit-text-stroke: 2px var(--accent-color);
+            font-size: 3rem; margin-bottom: 2rem; opacity: 0.8;
         }
 
-        .skills-grid {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
+        .skills-category h4 { margin-bottom: 1.2rem; position: relative; padding-left: 15px; }
+        .skills-category h4::before {
+            content: ''; position: absolute; left: 0; top: 50%;
+            transform: translateY(-50%); width: 5px; height: 5px;
+            background-color: var(--highlight-color); border-radius: 50%;
         }
+
+        .skills-grid { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
         .skill-badge {
-            width: 60px;
-            height: 60px;
-            background: #fff;
-            border: 1px solid var(--bg-secondary);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            width: 60px; height: 60px;
+            background: #fff; border: 1px solid var(--bg-secondary);
+            border-radius: 12px; display: flex;
+            justify-content: center; align-items: center;
+            padding: 12px; transition: transform 0.3s, box-shadow 0.3s;
         }
+        .skill-badge:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-color: var(--highlight-color); }
+        .skill-badge img { width: 100%; height: 100%; object-fit: contain; }
 
-        .skill-badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-color: var(--highlight-color);
-        }
-
-        .skill-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
         .skills-tags .skill-tag {
-             display: inline-block;
-             background: var(--bg-secondary);
-             padding: 0.6rem 1.2rem;
-             margin: 0.3rem 0.3rem 0.3rem 0;
-             border-radius: 8px;
-             font-size: 0.9rem;
-             font-weight: 500;
+            display: inline-block; background: var(--bg-secondary);
+            padding: 0.6rem 1.2rem; margin: 0.3rem 0.3rem 0.3rem 0;
+            border-radius: 8px; font-size: 0.9rem; font-weight: 500;
         }
 
-        /* ========================================
-           DETAILS & FOOTER
-        ======================================== */
+        /* DETAILS */
         .details-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            background: #fff;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; background: #fff; padding: 3rem;
+            border-radius: 20px; box-shadow: var(--shadow-soft);
         }
 
         .languages li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-            border-bottom: 1px dashed rgba(74, 63, 53, 0.2);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 0; border-bottom: 1px dashed rgba(74, 63, 53, 0.2);
         }
         .languages li:last-child { border-bottom: none; }
+        .languages li span { font-style: italic; color: var(--accent-color); font-size: 0.9rem; }
 
-        .languages li span {
-            font-style: italic;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
+        .hobbies-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center; }
 
-        .hobbies-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            text-align: center;
-        }
-
-        .hobby-item {
-            padding: 1rem;
-            border-radius: 10px;
-            background-color: var(--bg-primary);
-            transition: transform 0.2s;
-        }
+        .hobby-item { padding: 1rem; border-radius: 10px; background-color: var(--bg-primary); transition: transform 0.2s; }
         .hobby-item:hover { transform: scale(1.05); }
-
-        .hobby-item span {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
+        .hobby-item span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
         .hobby-item p { font-size: 0.85rem; font-weight: 600; }
 
         footer {
-            text-align: center;
-            padding: 3rem 5%;
+            text-align: center; padding: 3rem 5%;
             background-color: var(--bg-secondary);
-            font-size: 0.9rem;
-            color: rgba(74, 63, 53, 0.7);
+            font-size: 0.9rem; color: rgba(74, 63, 53, 0.7);
         }
-        
-        /* ========================================
-           RESPONSIVE DESIGN
-        ======================================== */
+
+        /* RESPONSIVE */
         @media (max-width: 992px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
             .hero-text h1 { margin-left: auto; margin-right: auto; }
-            .hero-details {
-                margin: 0 auto;
-                border-left: none;
-                border-top: 3px solid var(--accent-color);
-                padding-left: 0;
-                padding-top: 1.5rem;
-            }
+            .hero-details { margin: 0 auto; border-left: none; border-top: 3px solid var(--accent-color); padding-left: 0; padding-top: 1.5rem; }
             .about-container { grid-template-columns: 1fr; gap: 3rem; }
+            .projects-header { flex-direction: column; align-items: flex-start; }
             .skills-heading { text-align: left; font-size: 2.5rem; }
             .details-container { grid-template-columns: 1fr; padding: 2rem; }
         }
 
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%; /* Slide out */
-                width: 75%;
-                height: 100vh;
-                background: var(--bg-primary);
-                flex-direction: column;
-                justify-content: center;
-                gap: 2rem;
-                padding: 2rem;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-                transition: right 0.4s ease-in-out;
-            }
-            
-            .nav-links.active { right: 0; }
-            
             .container { padding: 4rem 0; width: 90%; }
-            
             .hobbies-list { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
-            
             .hero-image { max-width: 300px; height: 380px; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">✦ Hosanna Ute</div>
-            <div class="menu-toggle" id="menu-toggle">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 6H20M4 12H20M4 18H20" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About me</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#details">Interests</a></li>
-                <!-- Mobile Only Close Button inside menu if wanted, otherwise clicking outside or link closes it -->
-            </ul>
-        </div>
-    </nav>
 
     <header id="hero">
         <div class="hero-content">
@@ -712,53 +438,59 @@
                     <span>PORTFOLIO</span>
                 </h1>
                 <div class="hero-details">
-                    <p><strong>X:</strong> @adedelaneen<br><strong>IG:</strong> @adedelaneen</p>
-                    <p>I have dedicated working time to learn and gain experience in this field. I am seeking to improve my abilities and meet professional colleagues.</p>
+                    <!-- ✅ Only GitHub is a real link here; X and IG are plain text as they were -->
+                    <p>
+                        <strong>GitHub:</strong> <a href="https://github.com/hosannaute" target="_blank" rel="noopener noreferrer">@hosannaute</a><br>
+                        <strong>X:</strong> @adedelaneen<br>
+                        <strong>IG:</strong> @adedelaneen
+                    </p>
+                    <p>I have dedicated working time to learn and gain experience in software development. I am seeking to improve my abilities and meet professional colleagues.</p>
                 </div>
             </div>
             <div class="hero-image-container">
-                <!-- Using placeholder.co since local image is missing for preview. Replace src with "image/profic1.jpg" -->
-                <img src="image\profic1.jpg" alt="Hosanna Ute" class="hero-image">
+                <img src="image/profic1.jpg" alt="Hosanna Ute" class="hero-image">
             </div>
         </div>
-        <a href="#about" class="scroll-down">
+        <!-- ✅ Internal anchor only — stays on page -->
+        <a href="#projects" class="scroll-down">
             Scroll down
             <span>↓</span>
         </a>
     </header>
 
-    <section id="work-cta" class="container reveal">
-        <a href="project.html" class="cta-button">View My Works</a>
-    </section>
+
 
     <main>
         <section id="about" class="container reveal">
             <div class="about-container">
                 <div class="about-intro">
                     <h2>Hello, I'm Hosanna!</h2>
-                    <p>Passionate about front-end development and digital design. I create responsive websites that are clean, user-friendly, and built for real-world use. Always learning. Always delivering.</p>
+                    <p>Passionate about software development and digital design. I create responsive front-end interfaces and build functional Python tools, ranging from UI applications to data-parsing logic. Always learning. Always delivering.</p>
                     <div class="social-links-wrapper">
-                        <a href="https://www.linkedin.com/in/hosanna-ute-b8b1b1375?trk=contact-info" class="social-btn" target="_blank">
+                        <!-- ✅ EXTERNAL links — GitHub, LinkedIn, X — correctly open in new tab -->
+                        <a href="https://github.com/hosannaute" class="social-btn" target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                        <a href="https://www.linkedin.com/in/hosanna-ute-b8b1b1375" class="social-btn" target="_blank" rel="noopener noreferrer">
                             LinkedIn ↗
                         </a>
-                        <a href="https://x.com/adedelaneen?t=ErD7m49N2DsY3FowpGEIzA&s=08" class="social-btn" target="_blank">
+                        <a href="https://x.com/adedelaneen" class="social-btn" target="_blank" rel="noopener noreferrer">
                             X (Twitter) ↗
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="about-contact-card">
-                    <!-- Placeholder image. Replace src with "image/port2.jpg" -->
-                    <img src="image\profic2.jpg" alt="Profile" class="contact-image">
+                    <img src="image/profic2.jpg" alt="Profile" class="contact-image">
                     <div class="contact-details">
                         <div>
-                           <span class="tag date-tag">11th July 2006</span>
-                           <span class="tag nationality-tag">Nigeria</span>
+                            <span class="tag date-tag">11th July 2006</span>
+                            <span class="tag nationality-tag">Nigeria</span>
                         </div>
                         <h3>Contact Info</h3>
                         <p>
                             +234 708 224 7767<br>
-                            hosanna.ute@gmail.com<br>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f890978b99969699d68d8c9db89f95999194d69b9795">[email&#160;protected]</a><br>
                             Lagos, Nigeria
                         </p>
                     </div>
@@ -768,9 +500,57 @@
 
         <hr class="section-divider">
 
+        <section id="projects" class="container reveal">
+            <div class="projects-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <!-- ✅ EXTERNAL — GitHub profile, correctly opens in new tab -->
+                <a href="https://github.com/hosannaute" target="_blank" rel="noopener noreferrer" class="cta-button outline">View GitHub Profile ↗</a>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Salt Bank ATM Simulator</h3>
+                    <div class="project-tech tags">
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Tkinter GUI</span>
+                        <span class="tag-pill">JSON</span>
+                    </div>
+                    <p class="project-desc">A desktop banking application demonstrating object-oriented programming (OOP). Features a custom retro-styled GUI, secure PIN authentication, real-time transaction history tracking, and persistent JSON data storage across sessions.</p>
+                    <!-- ✅ EXTERNAL — GitHub repo link -->
+                    <a href="https://github.com/hosannaute/salt-bank-atm" target="_blank" rel="noopener noreferrer" class="project-link">View Source Code →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Naija Food Maker</h3>
+                    <div class="project-tech tags">
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Set Theory</span>
+                        <span class="tag-pill">Algorithms</span>
+                    </div>
+                    <p class="project-desc">An algorithmic recipe recommendation engine. Instead of a basic list, it utilizes Python's built-in Set data structures and 'issubset' mathematical logic to cross-reference a user's available ingredients and suggest complete traditional Nigerian meals.</p>
+                    <!-- ✅ EXTERNAL — GitHub repo link -->
+                    <a href="https://github.com/hosannaute/naija-food-maker" target="_blank" rel="noopener noreferrer" class="project-link">View Source Code →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">AI Document Reader</h3>
+                    <div class="project-tech tags">
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">File Parsing</span>
+                        <span class="tag-pill">NLP Logic</span>
+                    </div>
+                    <p class="project-desc">A smart parsing utility designed to read through document files and automatically generate contextual questions from the text. Demonstrates backend data processing, string manipulation, and understanding of text extraction logic.</p>
+                    <!-- ✅ EXTERNAL — GitHub repo link -->
+                    <a href="https://github.com/hosannaute" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
         <section id="resume" class="container">
             <div class="resume-grid">
-                
+
                 <div class="resume-column reveal">
                     <h3 class="section-title">Education</h3>
                     <div class="timeline-container">
@@ -792,7 +572,7 @@
                         </div>
                         <div class="timeline-item">
                             <h4>2016 - 2022</h4>
-                            <p><strong>De Praiseville Collge, Lagos</strong><br>Secondary School Degree</p>
+                            <p><strong>De Praiseville College, Lagos</strong><br>Secondary School Degree</p>
                         </div>
                     </div>
                 </div>
@@ -800,6 +580,10 @@
                 <div class="resume-column reveal" style="transition-delay: 0.1s;">
                     <h3 class="section-title">Experience</h3>
                     <div class="timeline-container">
+                        <div class="timeline-item">
+                            <h4>2025 - Present</h4>
+                            <p><strong>Self-Taught Python Developer</strong><br>Building functional desktop applications, recommendation engines, and data-parsing tools using Python and OOP principles.</p>
+                        </div>
                         <div class="timeline-item">
                             <h4>2023 - Frontend Development Intern</h4>
                             <p>Assisting in coding and testing front-end features for responsive web applications.</p>
@@ -813,11 +597,11 @@
                             <p>Creating digital assets and visual branding materials using professional design software.</p>
                         </div>
                     </div>
-                    
+
                     <div class="tags">
                         <h4 style="font-size: 1rem; margin-bottom: 0.5rem; font-family: var(--font-display);">Key Strengths:</h4>
-                        <span class="tag-pill">#Creativity</span>
-                        <span class="tag-pill">#Communication</span>
+                        <span class="tag-pill">#Logic Design</span>
+                        <span class="tag-pill">#Problem Solving</span>
                         <span class="tag-pill">#Detail-oriented</span>
                         <span class="tag-pill">#Adaptability</span>
                     </div>
@@ -825,36 +609,35 @@
 
                 <div class="skills-column reveal" style="transition-delay: 0.2s;">
                     <h2 class="skills-heading">Technical<br>Expertise</h2>
-                    
+
                     <div class="skills-category">
                         <h4>Software Skills</h4>
                         <div class="skills-grid">
+                            <div class="skill-badge" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
                             <div class="skill-badge" title="HTML5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
                             <div class="skill-badge" title="CSS3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
                             <div class="skill-badge" title="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
                             <div class="skill-badge" title="Figma"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></div>
-                            <div class="skill-badge" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
                         </div>
                     </div>
-                    
+
                     <div class="skills-category">
                         <h4>Coding Knowledge</h4>
-                        <p style="margin-bottom: 1rem; font-size: 0.95rem;">Proficient in building responsive interfaces and basic scripting.</p>
+                        <p style="margin-bottom: 1rem; font-size: 0.95rem;">Proficient in object-oriented programming, data structures, and building responsive interfaces.</p>
                         <div class="skills-tags">
+                            <span class="skill-tag">Python (Tkinter/JSON)</span>
                             <span class="skill-tag">HTML & CSS</span>
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Python</span>
                             <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Flutter</span>
                         </div>
                     </div>
-                    
+
                     <div class="skills-category" style="margin-top: 2rem;">
                         <h4>Design Areas</h4>
                         <div class="skills-tags">
                             <span class="skill-tag">Visual Design</span>
                             <span class="skill-tag">UI/UX</span>
                             <span class="skill-tag">User Research</span>
-                            <span class="skill-tag">Packaging</span>
                         </div>
                     </div>
                 </div>
@@ -872,13 +655,13 @@
                         <li><strong>Pidgin</strong> <span>Intermediate</span></li>
                         <li><strong>Ebira</strong> <span>Native</span></li>
                     </ul>
-                </div> 
+                </div>
                 <div class="hobbies">
                     <h3 class="section-title">Interests</h3>
                     <div class="hobbies-list">
                         <div class="hobby-item"><span>🎹</span><p>Piano</p></div>
                         <div class="hobby-item"><span>📖</span><p>Storywriting</p></div>
-                        <div class="hobby-item"><span>🎨</span><p>Digital Art</p></div>
+                        <div class="hobby-item"><span>💻</span><p>Software Logic</p></div>
                     </div>
                 </div>
             </div>
@@ -886,10 +669,10 @@
     </main>
 
     <footer id="contact">
-        <p>© 2025 Hosanna Ute. All Rights Reserved.</p>
+        <p>© 2026 Hosanna Ute. All Rights Reserved.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
             // Reveal Animation Observer
             const revealElements = document.querySelectorAll('.reveal');
@@ -913,43 +696,13 @@
                 heroSection.addEventListener('mousemove', function(e) {
                     const { clientX, clientY } = e;
                     const { offsetWidth, offsetHeight } = this;
-                    
-                    // Calculate percentage from center (-1 to 1)
                     const xPos = (clientX / offsetWidth) - 0.5;
                     const yPos = (clientY / offsetHeight) - 0.5;
-
-                    // Apply movement (values determine intensity)
                     shadow1.style.transform = `translate(${4 + xPos * 10}px, ${4 + yPos * 10}px)`;
                     shadow2.style.transform = `translate(${8 + xPos * 20}px, ${8 + yPos * 20}px)`;
                     shadow3.style.transform = `translate(${12 + xPos * 30}px, ${12 + yPos * 30}px)`;
                 });
             }
 
-            // Mobile Menu Toggle
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            
-            // Toggle menu
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent document click from immediately closing
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when clicking a link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
         });
     </script>
-</body>
-</html>
-
