@@ -397,6 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }
         });
+    }
+
     // ============================
     // LIGHTBOX MODAL FOR WORKS
     // ============================
