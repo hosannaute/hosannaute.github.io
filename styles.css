@@ -2175,4 +2175,65 @@ spline-viewer { --spline-viewer-bg: transparent; }
     }
 }
 
+/* === LIGHTBOX MODAL === */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-out);
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox__image {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-dark);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: scale(0.92);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.lightbox.active .lightbox__image {
+    transform: scale(1);
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.lightbox__close:hover {
+    transform: scale(1.1) rotate(90deg);
+    color: var(--accent);
+}
+
+.lightbox__caption {
+    margin-top: 20px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    letter-spacing: -0.01em;
+}
+
 

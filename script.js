@@ -397,6 +397,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }
         });
+    // ============================
+    // LIGHTBOX MODAL FOR WORKS
+    // ============================
+    const lightboxModal = document.getElementById('lightboxModal');
+    if (lightboxModal) {
+        const lightboxImage = lightboxModal.querySelector('.lightbox__image');
+        const lightboxCaption = lightboxModal.querySelector('.lightbox__caption');
+        const lightboxClose = lightboxModal.querySelector('.lightbox__close');
+
+        // Target all image wrappers in works items
+        document.querySelectorAll('.works__item-image').forEach(imgWrapper => {
+            imgWrapper.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const img = imgWrapper.querySelector('.works__item-img-src');
+                const worksItem = imgWrapper.closest('.works__item');
+                const titleEl = worksItem ? worksItem.querySelector('.works__item-title') : null;
+                
+                if (img && lightboxImage) {
+                    lightboxImage.src = img.src;
+                    if (lightboxCaption) {
+                        lightboxCaption.textContent = titleEl ? titleEl.textContent : img.alt;
+                    }
+                    lightboxModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Lock background scrolling
+                }
+            });
+        });
+
+        // Close functions
+        const closeLightbox = () => {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        // Close on clicking outside the image
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
     }
 
 
