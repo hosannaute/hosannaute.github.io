@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delaneen Design — Hosanna Ute | Graphic Designer & Product Designer</title>
+    <meta name="description" content="Delaneen Design — Visual identities, product experiences and digital systems that help brands communicate clearly, connect faster and stand out in crowded markets.">
+    <meta name="keywords" content="graphic designer, creative director, branding, logo design, UI/UX, web design, Delaneen Design, Hosanna Ute">
+    <meta property="og:title" content="Delaneen Design — Hosanna Ute | Design Engineer & Software Developer">
+    <meta property="og:description" content="Visual identities, product experiences and digital systems that help brands communicate clearly, connect faster and stand out in crowded markets.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Delaneen Design — Hosanna Ute">
+    <meta name="twitter:description" content="Design Engineering & Software Development. Visual systems people remember, backend code that performs.">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Three.js Import Map & Core Script -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="three-hero.js"></script>
+    <script type="module" src="three-interactive.js"></script>
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-glow" id="cursorGlow"><span class="cursor-glow__badge" id="cursorGlowBadge">VIEW</span></div>
+
+    <!-- Noise overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <header class="nav" id="mainNav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <img src="images/logo.png" alt="Delaneen Design Logo" class="logo-icon">
+                <span class="logo-text">Delaneen Design</span>
+            </a>
+            <nav class="nav__links" id="navLinks">
+                <a href="#works" class="nav__link">Portfolio</a>
+                <a href="about.html" class="nav__link">About</a>
+                <a href="services.html" class="nav__link">Services</a>
+                <a href="#contact" class="nav__link">Contact</a>
+            </nav>
+            <a href="services.html" class="nav__cta">
+                <span>Start Project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__links">
+            <a href="#works" class="mobile-menu__link">Portfolio</a>
+            <a href="about.html" class="mobile-menu__link">About</a>
+            <a href="services.html" class="mobile-menu__link">Services</a>
+            <a href="#contact" class="mobile-menu__link">Contact</a>
+            <a href="services.html" class="mobile-menu__cta">Start Project →</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <div class="hero__labels">
+                    <span class="hero__label hero__label--role">DESIGN ENGINEER</span>
+                    <span class="hero__label hero__label--role">SOFTWARE DEVELOPER</span>
+                </div>
+
+                <h1 class="hero__title">
+                    <span class="title-row">
+                        <span class="title-word" data-delay="0">HOSANNA</span>
+                    </span>
+                    <span class="title-row title-row--second">
+                        <span class="title-word title-word--outline" data-delay="200">UTE</span>
+                    </span>
+                </h1>
+
+                <!-- Delaneen badge inside the O -->
+                <div class="hero__delaneen-badge">
+                    <span>DELANEEN</span>
+                </div>
+
+                <div class="hero__tagline">
+                    <svg class="tagline-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                    <div class="tagline-text">
+                        <span class="tagline-accent">DESIGNING VISUAL SYSTEMS</span>
+                        <span>PEOPLE REMEMBER.</span>
+                        <span>BUILDING BACKEND CODE</span>
+                        <span>THAT PERFORMS.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__visual">
+                <div class="hero__image-wrapper">
+                    <div class="hero__image-frame">
+                        <img src="images/profile2.png" alt="Hosanna Ute - Creative Director" class="hero__image" id="heroImage">
+                    </div>
+                    <!-- Brush strokes frame -->
+                    <div class="brush-stroke brush-stroke--top"></div>
+                    <div class="brush-stroke brush-stroke--bottom"></div>
+                    <div class="brush-stroke brush-stroke--left"></div>
+                    <div class="brush-stroke brush-stroke--right"></div>
+                    <!-- Creative Director tag -->
+                    <div class="hero__director-tag">
+                        <span>DESIGN ENGINEER</span>
+                    </div>
+                </div>
+
+                <!-- Three.js 3D floating element -->
+                <div class="hero__spline" id="heroSpline">
+                    <div id="three-hero-canvas" style="width: 100%; height: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="about">
+        <div class="skills__container">
+            <div class="skills__grid">
+                <!-- Creative Approach Column -->
+                <div class="skills__card skills__card--dark" data-animate="fadeUp">
+                    <h3 class="skills__card-title">
+                        <svg class="card-title-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                        </svg>
+                        More Than Visuals. Design With Purpose.
+                    </h3>
+                    <ul class="skills__list">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            Brand Research and User Psychology
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            Visual Strategy and Product Thinking
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            Experience Design and Creative Systems
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Core Strengths Column -->
+                <div class="skills__card skills__card--accent" data-animate="fadeUp" data-delay="200">
+                    <div class="card-label">CORE STRENGTHS</div>
+                    <p class="card-sublabel">(Design + Strategy)</p>
+                    <div class="skills__divider"></div>
+                    <h3 class="skills__card-title-large">Brand Design</h3>
+                    <p class="skills__subtitle">Visual Systems + Identity</p>
+                    <div class="skills__divider"></div>
+                    <h4 class="skills__sub-heading">Product + UX</h4>
+                    <p class="skills__detail">Research-Driven Design</p>
+                    <div class="skills__divider"></div>
+                    <h4 class="skills__sub-heading">Communication Design</h4>
+                    <p class="skills__detail">Creative Systems</p>
+                    <div class="skills__monogram">DD</div>
+                </div>
+
+                <!-- Solutions Column -->
+                <div class="skills__card skills__card--dark" data-animate="fadeUp" data-delay="400">
+                    <div class="card-label">SOLUTIONS</div>
+                    <p class="card-sublabel">(What Gets Delivered)</p>
+                    <h3 class="skills__card-title" style="margin-top: 16px;">Services</h3>
+                    <div class="services-list">
+                        <span>Brand Identity</span>
+                        <span>Product + UX Design</span>
+                        <span>Digital Systems</span>
+                    </div>
+                    <div class="service-tags">
+                        <a href="services.html" class="service-tag">Visual Identity</a>
+                        <a href="services.html" class="service-tag">Brand Strategy</a>
+                        <a href="services.html" class="service-tag">UI/UX Design</a>
+                        <a href="services.html" class="service-tag service-tag--accent">Product Thinking</a>
+                        <a href="services.html" class="service-tag service-tag--accent">Design Research</a>
+                        <a href="services.html" class="service-tag">Creative Direction</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Works Section -->
+    <section class="works" id="works">
+        <div class="works__container">
+            <div class="works__header">
+                <h2 class="works__title">
+                    <span class="works__title-line">SELECTED</span>
+                    <span class="works__title-line works__title-line--outline">WORKS</span>
+                </h2>
+                <div class="works__nav">
+                    <div class="works__counter">
+                        <span class="counter-current">01</span>
+                        <span class="counter-divider">/</span>
+                        <span class="counter-total">07</span>
+                    </div>
+                    <svg class="works__arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Decorative line -->
+            <div class="works__line"></div>
+
+            <div class="works__grid">
+                <!-- Project 1 - Brand Identity -->
+                <div class="works__item" data-animate="fadeUp">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Branding</span>
+                        </div>
+                        <img src="images/Branding.png" alt="Brand Identity: Delaneen" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Interlocking diamond SVG for branding -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 12h4v8h12v-8h4L12 2z"/>
+                                <path d="M12 6l6 6H6l6-6z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Brand Identity: Delaneen</h3>
+                        <p class="works__item-desc">A cohesive corporate identity system built for recognition, consistency, and premium brand presence.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Establish a memorable visual baseline that instantly communicates professional excellence across physical and digital touchpoints.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Adobe Illustrator</span>
+                                    <span class="software-tag-item">Adobe Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="brand">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 - UI/UX -->
+                <div class="works__item" data-animate="fadeUp" data-delay="100">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">UI/UX</span>
+                        </div>
+                        <img src="images/UI UX.png" alt="UI/UX Platform" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Mobile layout wireframe SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">UI/UX: App Interface</h3>
+                        <p class="works__item-desc">Advanced mobile application screens focused on usability, biometric navigation, and frictionless user flows.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Reduce user drop-offs and optimize task completion times by structuring cognitive design layers.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Figma</span>
+                                    <span class="software-tag-item">Spline 3D</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="uiux">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Website -->
+                <div class="works__item" data-animate="fadeUp" data-delay="150">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Web Design</span>
+                        </div>
+                        <img src="images/Website.png" alt="Website Experience" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Browser SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <circle cx="6" cy="6.5" r="1" fill="currentColor"/>
+                                <circle cx="9" cy="6.5" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Website: Delaneen Portal</h3>
+                        <p class="works__item-desc">A premium responsive web environment integrating interactive 3D elements, custom overlay noise, and rich layout flows.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Create an immersive, high-performing digital landing showcase that generates client conversions.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Figma</span>
+                                    <span class="software-tag-item">VS Code</span>
+                                    <span class="software-tag-item">Spline 3D</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="web">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Logo Design -->
+                <div class="works__item" data-animate="fadeUp" data-delay="200">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Logo Set</span>
+                        </div>
+                        <img src="images/Logo Design.png" alt="Logo Set: High Voltage" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Pen Tool SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <circle cx="12" cy="11" r="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Logo Design: High Voltage</h3>
+                        <p class="works__item-desc">Scalable, bold logo exploration showcasing extreme visual recall, typographic harmony, and modern design angles.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Craft a highly versatile brand emblem that maintains pristine readability at both 16px tab icon and scale.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Adobe Illustrator</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="logo">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Birthday Flyer -->
+                <div class="works__item" data-animate="fadeUp" data-delay="250">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Event Design</span>
+                        </div>
+                        <img src="images/Birthday Flyer.png" alt="Birthday Flyer: Night Out" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Ticket SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"/>
+                                <line x1="12" y1="5" x2="12" y2="19" stroke-dasharray="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Event Flyer: Birthday Bash</h3>
+                        <p class="works__item-desc">High-impact party flyer integrating electric neon glow, custom typography, and dynamic spatial placement.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Drive excitement, ticket bookings, and viral organic reach across primary social media sharing platforms.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Adobe Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="flyer">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Poster Design -->
+                <div class="works__item" data-animate="fadeUp" data-delay="300">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Artistic Poster</span>
+                        </div>
+                        <img src="images/Poster.png" alt="Artistic Poster" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Picture frame SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Poster: Cyberpunk & Typography</h3>
+                        <p class="works__item-desc">Rich visual editorial compositions focusing on dramatic focal contrast, bold typographic blocks, and textured layouts.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Create a museum-quality digital visual that commands high immediate curiosity and visual engagement.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Adobe Photoshop</span>
+                                    <span class="software-tag-item">Adobe Illustrator</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="poster">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Social Media Graphic -->
+                <div class="works__item" data-animate="fadeUp" data-delay="350">
+                    <div class="works__item-image">
+                        <div class="works__item-overlay">
+                            <span class="overlay-tag">Social Campaign</span>
+                        </div>
+                        <img src="images/Social Media.png" alt="Social Media Graphics" class="works__item-img-src">
+                        <div class="works__item-icon-holder">
+                            <!-- Grid layout SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="works__item-info">
+                        <h3 class="works__item-title">Social Campaign: Brand Kit</h3>
+                        <p class="works__item-desc">Harmonized pack of graphics, banner variants, and post structures designed to maintain high engagement levels.</p>
+                        <div class="works__item-details-expanded">
+                            <div class="detail-block">
+                                <span class="detail-label">OBJECTIVE:</span>
+                                <span class="detail-val">Preserve a cohesive brand aesthetics, increase audience interactions, and maintain post consistency.</span>
+                            </div>
+                            <div class="detail-block">
+                                <span class="detail-label">SOFTWARE:</span>
+                                <div class="software-tags">
+                                    <span class="software-tag-item">Figma</span>
+                                    <span class="software-tag-item">Adobe Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="works__item-action open-case-study" data-case="campaign">
+                            <span>View Case Study</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Showcase Section -->
+    <section class="spline-section" id="spline3d">
+        <div class="spline-section__container">
+            <div class="spline-section__content">
+                <div class="spline-label">THE BRAND</div>
+                <h2 class="spline-section__title">Delaneen <span class="text-accent">Design</span></h2>
+                <p class="spline-section__desc">Delaneen Design is a premium visual systems studio engineering high-impact brand identities, sleek layout frameworks, and bold digital concepts. We fuse rigorous structural grids with striking brutalist aesthetics to ensure your brand commands attention, projects authority, and scales flawlessly.</p>
+                <a href="services.html" class="spline-cta">
+                    <span>View Services</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="spline-section__viewer" style="position: relative; overflow: hidden; border-radius: var(--radius-md); border: 2px solid var(--border-dark);">
+                <img src="images/space.png" alt="Delaneen Space Design Concept" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%) contrast(1.05);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <div class="contact__content" data-animate="fadeUp">
+                <div class="contact__brush-accent"></div>
+                <h2 class="contact__title">Let's Build Something Great</h2>
+                <p class="contact__desc">Strong visual systems. Rigid frontend code. Clear brand recall. I build beautiful digital environments that perform instantly.</p>
+                <div class="contact__info-details" style="margin-top: 24px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+                    <div><strong>EMAIL:</strong> hosanna.ute@gmail.com</div>
+                    <div><strong>LOCATION:</strong> Lagos, Nigeria</div>
+                </div>
+                <div class="contact__buttons" style="margin-top: 24px;">
+                    <a href="https://wa.me/2347082247767" class="contact__btn contact__btn--whatsapp" target="_blank" rel="noopener" id="whatsappBtn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/delaneendesigns?igsh=ZnJ3d3VoYXFjMDNx" class="contact__btn contact__btn--instagram" target="_blank" rel="noopener" id="instagramBtn">
+                        <span>Instagram</span>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="contact__form-container" data-animate="fadeUp" data-delay="200">
+                <form class="contact__form" id="contactForm" action="https://formspree.io/f/mlgvvyjo" method="POST">
+                    <input type="hidden" name="_subject" value="New Portfolio Inquiry — Delaneen Design">
+                    <div class="form-group">
+                        <label for="formName" class="form-label">Name</label>
+                        <input type="text" id="formName" name="name" class="form-input" placeholder="e.g. Tunde Alabi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formEmail" class="form-label">Email</label>
+                        <input type="email" id="formEmail" name="email" class="form-input" placeholder="e.g. tunde@techspace.africa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formPhone" class="form-label">Phone / WhatsApp <span style="font-size: 0.7rem; color: var(--text-muted);">(Optional)</span></label>
+                        <input type="tel" id="formPhone" name="phone" class="form-input" placeholder="e.g. +234 708 224 7767">
+                    </div>
+                    <div class="form-group">
+                        <label for="formMessage" class="form-label">Message</label>
+                        <textarea id="formMessage" name="message" class="form-input form-textarea" placeholder="Outline your project scope, timeline & targets..." required></textarea>
+                    </div>
+                    <button type="submit" class="contact__submit-btn">
+                        <span>Send Message</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <div class="footer__logo">
+                    <img src="images/logo.png" alt="Delaneen Design" class="logo-icon">
+                    <span class="logo-text">Delaneen Design</span>
+                </div>
+                <p class="footer__tagline">Building systems, experiences and brands that perform. Research-driven design with purpose.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-title">QUICK LINKS</div>
+                <ul class="footer__links-list">
+                    <li><a href="index.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://www.behance.net/hosannaute" target="_blank" rel="noopener">Behance</a></li>
+                </ul>
+            </div>
+            <div class="footer__bottom-info">
+                <p class="footer__copy">© 2026 Delaneen Design. All rights reserved.</p>
+                <p class="footer__credit">Crafted by Hosanna Ute.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CASE STUDY DRAWERS ==================== -->
+    <div class="case-study-overlay" id="caseStudyOverlay"></div>
+
+    <!-- Project 1 Case Study: Brand Identity -->
+    <div class="case-study-drawer" id="caseStudyDrawer-brand">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Brand Identity</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>DELANEEN SYSTEM</span>
+            </div>
+            
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Building recognition baseline</h3>
+                <div class="case-study-block__text">
+                    <p>Big brands require extreme consistency. The baseline objective for Delaneen was to develop an interlocking visual corporate guidelines model representing professional excellence across both physical stationery cards and high-performance browser interfaces.</p>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">DESIGN SYSTEM</span>
+                <h3 class="case-study-block__title">Aesthetics & Typographic Logic</h3>
+                <div class="case-study-block__text">
+                    <p>We structured a robust design system baseline based on standard geometric rules. Color swatches utilize warm corporate sand-beige contrasted with electric neon highlights, creating a sense of brutalist technology and high-end creative direction.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Pantone Matching System</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Scalable Vector Geometry</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Letterhead & Collateral</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Full PDF Brand Guidelines</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Enterprise Brand Readiness</h3>
+                <div class="case-study-block__text">
+                    <p>The brand architecture successfully established a memorable visual footprint. All materials scale seamlessly from A4 letterhead forms down to 16px desktop tab icons, ensuring complete brand readiness for massive commercial markets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Case Study: UI/UX App Interface -->
+    <div class="case-study-drawer" id="caseStudyDrawer-uiux">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: App Interface</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>INTERACTIVE APPLICATION UX</span>
+            </div>
+            
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Frictionless biometric navigation</h3>
+                <div class="case-study-block__text">
+                    <p>Modern applications require user interaction sequences that are intuitive and fast. The goal for this design was to engineer clean, biometric-focused mobile navigation layouts that reduce task completion times and drop-off counts on enterprise platforms.</p>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">RESEARCH & DESIGN</span>
+                <h3 class="case-study-block__title">Information Architecture & Prototypes</h3>
+                <div class="case-study-block__text">
+                    <p>We designed detailed wireframe blueprints mapping out cognitive user load levels. The final layout houses auto-layouts and robust component variants on Figma, ensuring complete design-system alignment.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> UX Flow & Wireframing</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Interactive Prototype</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Biometric User Handshakes</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dev-ready Figma Tokens</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Optimized Operational Metrics</h3>
+                <div class="case-study-block__text">
+                    <p>The screen variants optimized transition flows and reduced overall interface friction. Handed off cleanly via structured design systems, this mockup sets the benchmark for enterprise-level visual application products.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 Case Study: Delaneen Portal Website -->
+    <div class="case-study-drawer" id="caseStudyDrawer-web">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Web Platform</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>FRONTEND DEVELOPMENT SHOT</span>
+            </div>
+            
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Pioneering visual engineering</h3>
+                <div class="case-study-block__text">
+                    <p>Web platforms for big brands must operate fast while displaying visual elegance. The mission was to design a highly interactive web environment integrating custom overlay noise, 3D Spline elements, and smooth fluid layouts.</p>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">ENGINEERING</span>
+                <h3 class="case-study-block__title">3D Integrations & Code Optimization</h3>
+                <div class="case-study-block__text">
+                    <p>We wrote optimized HTML5 structure, custom CSS variables, and lightweight JavaScript listeners. Interactive 3D Spline viewers load asynchronously to preserve instant page-load speeds while maintaining rich spatial depth.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 3D Spline Integrations</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CSS Spacing Variables</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Async 3D Asset Loading</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 1.2s Core Visual Load</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Exceptional Brand Conversions</h3>
+                <div class="case-study-block__text">
+                    <p>The platform successfully bridges design aesthetics and core frontend metrics. Running with rich overlays, custom cursor glow coordinates, and modular code variables, this landing showcase establishes high immediate curiosity and visual conversions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 4 Case Study: Logo Design -->
+    <div class="case-study-drawer" id="caseStudyDrawer-logo">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Logo Design</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>HIGH VOLTAGE LOGOMARK</span>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Extreme visual recall at any scale</h3>
+                <div class="case-study-block__text">
+                    <p>The brief was simple: craft a brand mark that stops scrolling, looks incredible at 16px favicon size, and maintains its presence at billboard scale. Every curve and counter-space was intentionally calculated.</p>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">APPROACH</span>
+                <h3 class="case-study-block__title">Geometric precision & typographic harmony</h3>
+                <div class="case-study-block__text">
+                    <p>Starting from a geometric grid system, I explored over 30 sketch directions before narrowing to three strong candidates. The final mark blends angular energy with refined letterform proportions, tested across dark/light backgrounds and multiple size contexts.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 30+ initial sketch explorations</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Grid-based geometric construction</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Multi-context size testing (16px → billboard)</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dark/light background validation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">A mark built for versatility</h3>
+                <div class="case-study-block__text">
+                    <p>The final logo system scales flawlessly from 16px tab icons to large-format prints. Delivered as a complete vector suite (AI, SVG, EPS, PNG) with monochrome and color variants ready for immediate deployment across digital and physical media.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 5 Case Study: Event Flyer -->
+    <div class="case-study-drawer" id="caseStudyDrawer-flyer">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Event Flyer</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>ELECTRIC NEON BASH</span>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Driving virality & conversions</h3>
+                <div class="case-study-block__text">
+                    <p>The goal was to design a flyer so visually electric that people would share it without being asked. Every element — from the neon glow palette to the typography weight — was tuned to maximize engagement and drive ticket bookings.</p>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">APPROACH</span>
+                <h3 class="case-study-block__title">Neon-brutalist visual strategy</h3>
+                <div class="case-study-block__text">
+                    <p>I combined electric neon color treatments with bold, retro-brutalist typography to create instant visual tension. The layout uses aggressive spatial hierarchy to guide the eye from headline to date to call-to-action in under 2 seconds of viewing time.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Electric neon color grading</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Retro-brutalist typography pairing</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 2-second scan-path optimization</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Social-native format sizing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Viral organic sharing</h3>
+                <div class="case-study-block__text">
+                    <p>The flyer was optimized for Instagram Stories, WhatsApp forwards, and print handouts. Its striking neon palette generated significant organic reach, with the design being re-shared across multiple social platforms without any paid promotion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 6 Case Study: Cyberpunk Poster -->
+    <div class="case-study-drawer" id="caseStudyDrawer-poster">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Cyberpunk Poster</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>CYBERPUNK TYPOGRAPHY COMP</span>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Museum-quality visual layout</h3>
+                <div class="case-study-block__text">
+                    <p>This project challenged me to create an editorial-quality poster that functions as both a standalone art piece and a commercial communication tool. The benchmark was gallery-level visual intensity.</p>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">APPROACH</span>
+                <h3 class="case-study-block__title">Photomontage & editorial typography</h3>
+                <div class="case-study-block__text">
+                    <p>I layered advanced Photoshop compositing techniques with Illustrator-based typographic grids. The result is a gritty, industrial aesthetic that uses heavy contrast and textured overlays to command immediate visual focus from across a room.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Multi-layer photomontage compositing</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Industrial texture overlays</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Heavy editorial typographic blocks</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> High-contrast color grading</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Gallery-grade visual impact</h3>
+                <div class="case-study-block__text">
+                    <p>The final poster delivers instant visual engagement at both screen and large-format print sizes. It demonstrates mastery of advanced compositing, color theory, and typographic hierarchy — skills directly applicable to editorial, entertainment, and brand campaign work.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 7 Case Study: Social Campaign -->
+    <div class="case-study-drawer" id="caseStudyDrawer-campaign">
+        <div class="case-study-drawer__header">
+            <h2 class="case-study-drawer__title">Case Study: Social Campaign</h2>
+            <button class="case-study-drawer__close" aria-label="Close case study">✕</button>
+        </div>
+        <div class="case-study-drawer__body">
+            <div class="case-study-image-box">
+                <span>SOCIAL MEDIA CAMPAIGN SET</span>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OBJECTIVE</span>
+                <h3 class="case-study-block__title">Consistent brand aesthetics</h3>
+                <div class="case-study-block__text">
+                    <p>Brands lose trust when their social presence looks fragmented. This project required building a cohesive visual system that maintains identity coherence across Instagram, Twitter/X, LinkedIn, and WhatsApp Status — without looking repetitive.</p>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">APPROACH</span>
+                <h3 class="case-study-block__title">Modular template system</h3>
+                <div class="case-study-block__text">
+                    <p>I designed a modular grid system where every post, story, and banner shares the same foundational layout DNA but allows for variation in content and imagery. Color tokens, typography scales, and spacing rules were locked to the brand guide.</p>
+                    <ul class="case-study-list">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Modular grid-based template system</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Platform-specific sizing (IG, X, LinkedIn)</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Brand token enforcement (colors, type, spacing)</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Reusable Figma component library</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="case-study-block">
+                <span class="case-study-block__label">OUTCOME</span>
+                <h3 class="case-study-block__title">Scalable engagement framework</h3>
+                <div class="case-study-block__text">
+                    <p>The final deliverable was a complete social media kit with editable templates, a brand style guide for social, and ready-to-post assets. The modular system allows the client to produce new on-brand content independently, reducing ongoing design costs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

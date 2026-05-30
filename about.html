@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me — Hosanna Ute | Graphic Designer & Software Developer</title>
+    <meta name="description" content="Meet Hosanna Ute — Computer Engineering undergraduate, graphic designer and software developer. Building visual systems and functional, intelligent applications in Lagos, Nigeria.">
+    <meta name="keywords" content="Hosanna Ute, Hosanna Uto, Delaneen Design, software developer, Python developer, UI/UX designer, computer engineering, University of Ilorin, Lagos, Nigeria">
+    <meta name="author" content="Hosanna Ute">
+    <meta property="og:title" content="About Hosanna Ute — Design Engineer & Software Developer">
+    <meta property="og:description" content="Meet Hosanna Ute — Computer Engineering undergraduate, graphic designer and software developer building visual systems and functional applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About — Hosanna Ute | Delaneen Design">
+    <meta name="twitter:description" content="Design Engineer. Software Developer. Building systems that work.">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Noise overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <header class="nav" id="mainNav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="Delaneen Design Logo" class="nav__logo-img">
+                <span class="logo-text">Delaneen Design</span>
+            </a>
+            <nav class="nav__links" id="navLinks">
+                <a href="index.html" class="nav__link">Portfolio</a>
+                <a href="about.html" class="nav__link nav__link--active">About</a>
+                <a href="services.html" class="nav__link">Services</a>
+                <a href="index.html#contact" class="nav__link">Contact</a>
+            </nav>
+            <a href="https://wa.me/2347082247767" class="nav__cta" target="_blank" rel="noopener">
+                <span>Start Project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__links">
+            <a href="index.html" class="mobile-menu__link">Portfolio</a>
+            <a href="about.html" class="mobile-menu__link mobile-menu__link--active">About</a>
+            <a href="services.html" class="mobile-menu__link">Services</a>
+            <a href="index.html#contact" class="mobile-menu__link">Contact</a>
+            <a href="https://wa.me/2347082247767" class="mobile-menu__cta" target="_blank" rel="noopener">Start Project →</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-hero" id="hero">
+        <div class="about-hero__container">
+            <!-- Left Side: Dynamic Profile wrapper -->
+            <div class="about-hero__visual">
+                <div class="about-hero__image-wrapper hero__image-wrapper">
+                    <div class="about-hero__image-frame">
+                        <img src="images/profile2.png" alt="Hosanna Ute — Designer & Engineer" class="about-hero__image">
+                    </div>
+                    <!-- Creative brutalist brush frame strokes -->
+                    <div class="brush-stroke brush-stroke--top"></div>
+                    <div class="brush-stroke brush-stroke--bottom"></div>
+                    <div class="brush-stroke brush-stroke--left"></div>
+                    <div class="brush-stroke brush-stroke--right"></div>
+                    
+                    <!-- Creative director / designer tag -->
+                    <div class="about-hero__badge">
+                        <span>HOSANNA UTE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Text elements -->
+            <div class="about-hero__content">
+                <div class="about-hero__tag">
+                    <span>DESIGN ENGINEER</span>
+                </div>
+                <h1 class="about-hero__title">
+                    I Design Systems.<br>
+                    <span class="outline">I Build Code.</span>
+                </h1>
+                
+                <div class="about-hero__location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span>Lagos, Nigeria</span>
+                </div>
+
+                <div class="about-hero__intro">
+                    I build things that work. I do not wait to be taught. I identify what needs to be built, learn what I need to build it, and ship it.
+                </div>
+                <p class="about-hero__bio-lead">
+                    Currently studying Computer Engineering at the University of Ilorin, I have spent the last two years writing software that goes beyond coursework — building functional desktop applications, intelligent recommendation systems, and document-processing tools.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section class="bento-section" id="bio-details">
+        <div class="bento-container">
+            <div class="bento-grid">
+                
+                <!-- Bento Card 1: Who I Am / Software Dev -->
+                <div class="bento-card bento-card--large" data-animate="fadeUp">
+                    <div class="bento-card__inner">
+                        <div class="bento-card__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="4" x2="12" y2="20"/>
+                            </svg>
+                        </div>
+                        <span class="bento-card__label">WHO I AM</span>
+                        <h2 class="bento-card__title">Engineering & Code</h2>
+                        <div class="bento-card__text">
+                            <p>I operate at the intersection of logical engineering and visual clarity. Currently studying Computer Engineering at the University of Ilorin, I translate complex technical problems into fluid, high-fidelity user experiences and functional, optimized backend systems.</p>
+                            <p>My methodology is simple: I build products that solve real problems. By combining visual strategy with data-driven software engineering, I create digital experiences that perform beautifully and load instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 2: What I Bring (Accent Card) -->
+                <div class="bento-card bento-card--medium bento-card--accent" data-animate="fadeUp" data-delay="100">
+                    <div class="bento-card__inner">
+                        <div class="bento-card__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <span class="bento-card__label" style="color: rgba(0,0,0,0.6);">CAPABILITIES</span>
+                        <h2 class="bento-card__title">What I Bring</h2>
+                        <div class="bento-card__text">
+                            <p>My technical range spans frontend interfaces to robust backends. I construct responsive, intentional browser frameworks, write structured Python, build clean GUI applications with Tkinter, and manage persistent storage networks with JSON.</p>
+                        </div>
+                        <div class="skills-block">
+                            <div class="skills-pills">
+                                <span class="skill-pill">Python (OOP)</span>
+                                <span class="skill-pill">Tkinter GUI</span>
+                                <span class="skill-pill">HTML5 & CSS3</span>
+                                <span class="skill-pill">JavaScript</span>
+                                <span class="skill-pill">Figma UI/UX</span>
+                                <span class="skill-pill">JSON Database</span>
+                                <span class="skill-pill">Flutter (In progress)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 3: Design Roots Background -->
+                <div class="bento-card bento-card--medium" data-animate="fadeUp">
+                    <div class="bento-card__inner">
+                        <div class="bento-card__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+                                <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"/>
+                            </svg>
+                        </div>
+                        <span class="bento-card__label">BACKGROUND</span>
+                        <h2 class="bento-card__title">Design Foundations</h2>
+                        <div class="bento-card__text">
+                            <p>I started in design. Before writing a single line of code, I was crafting visual systems — branding materials, digital corporate assets, and user interface wireframes. That creative foundation gives me a unique advantage: I understand how software should look and feel to the actual person using it, not just how it functions under the hood.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 4: Education, Training & Analyst experience -->
+                <div class="bento-card bento-card--large" data-animate="fadeUp" data-delay="100">
+                    <div class="bento-card__inner">
+                        <div class="bento-card__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                            </svg>
+                        </div>
+                        <span class="bento-card__label">EXPERIENCE & EDUCATION</span>
+                        <h2 class="bento-card__title">Academic & Training</h2>
+                        <div class="bento-card__text">
+                            <p>In 2023, I completed comprehensive frontend development training at the <strong>Tbuiz Training Centre</strong> in Lagos, interning on live commercial web platforms. I've also interned as a <strong>data analyst</strong>, where I built skills in reading raw data structures, interpreting user behavior patterns, and translating metrics into actionable business reports.</p>
+                            <p>Now, as a Computer Engineering undergraduate, I combine that strategic analyst foundation with core software engineering. The trajectory is clear, rapid, and focused on delivering high-performance products.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 5: Skills & Languages (Full width bento) -->
+                <div class="bento-card bento-card--full" data-animate="fadeUp">
+                    <div class="bento-card__inner">
+                        <span class="bento-card__label">SKILLSET MATRIX</span>
+                        <h2 class="bento-card__title">Core Technical Focus</h2>
+                        <div class="skills-pills" style="margin-bottom: 30px;">
+                            <span class="skill-pill">Python Development</span>
+                            <span class="skill-pill">Object-Oriented Programming (OOP)</span>
+                            <span class="skill-pill">Data Structures</span>
+                            <span class="skill-pill">UI/UX Design</span>
+                            <span class="skill-pill">HTML5 / CSS3</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">Figma Graphic & Interactive Design</span>
+                            <span class="skill-pill">Flutter Application Framework</span>
+                            <span class="skill-pill">File Parsing & Processing</span>
+                            <span class="skill-pill">Algorithm & Logical Design</span>
+                        </div>
+
+                        <span class="bento-card__label">COMMUNICATION</span>
+                        <h2 class="bento-card__title" style="font-size: 1.4rem; margin-bottom: 12px;">Languages</h2>
+                        <div class="langs-grid">
+                            <div class="lang-item">
+                                <div class="lang-item__name">English</div>
+                                <div class="lang-item__level">Fluent</div>
+                            </div>
+                            <div class="lang-item">
+                                <div class="lang-item__name">Nigerian Pidgin</div>
+                                <div class="lang-item__level">Intermediate</div>
+                            </div>
+                            <div class="lang-item">
+                                <div class="lang-item__name">Ebira</div>
+                                <div class="lang-item__level">Native</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (CTA) Section -->
+    <section class="about-cta">
+        <div class="about-cta__container" data-animate="fadeUp">
+            <div class="about-cta__tag">
+                <span>OPEN TO OPPORTUNITIES</span>
+            </div>
+            <h2 class="about-cta__title">Let's Build Something That Performs</h2>
+            <p class="about-cta__desc">
+                I am looking for internship opportunities with teams that construct real-world commercial systems. I thrive in environments where I can write clean code, solve challenging operational problems, and work alongside developers who take their craft seriously.
+            </p>
+            <div class="about-cta__buttons">
+                <!-- WhatsApp / Contact BTN (magnetic properties automatic from script.js) -->
+                <a href="Hosanna_Ute_Resume.pdf" download class="cta-btn cta-btn--primary contact__btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    <span>Download CV</span>
+                </a>
+                <a href="mailto:hosanna.ute@gmail.com" class="cta-btn cta-btn--secondary contact__btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span>Email Me</span>
+                </a>
+                <a href="https://github.com/hosannaute" class="cta-btn cta-btn--secondary contact__btn" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="https://www.linkedin.com/in/hosanna-ute-b71569263" class="cta-btn cta-btn--secondary contact__btn" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span>LinkedIn Connection</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <div class="footer__logo">
+                    <img src="images/logo.png" alt="Delaneen Design" class="footer__logo-img">
+                    <span class="footer__logo-text">Delaneen Design</span>
+                </div>
+                <p class="footer__tagline">Building systems, experiences and brands that perform. Research-driven design with purpose.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-title">QUICK LINKS</div>
+                <ul class="footer__links-list">
+                    <li><a href="index.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="https://www.behance.net/hosannaute" target="_blank" rel="noopener">Behance</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer__links-title">CONNECT</div>
+                <div class="footer__social">
+                    <a href="https://wa.me/2347082247767" class="footer__social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/delaneendesigns?igsh=ZnJ3d3VoYXFjMDNx" class="footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">© 2026 Delaneen Design. All rights reserved.</p>
+            <p class="footer__credit">Crafted by Hosanna Ute.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
