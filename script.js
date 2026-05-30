@@ -406,13 +406,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
 
-    window.addEventListener('load', () => {
+    // Fade in immediately since the DOM is parsed and ready
+    requestAnimationFrame(() => {
         document.body.style.opacity = '1';
     });
-
-    if (document.readyState === 'complete') {
-        document.body.style.opacity = '1';
-    }
 
     console.log('⚡ Delaneen Design — Portfolio Loaded');
 });
