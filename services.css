@@ -838,14 +838,18 @@ body:hover .cursor-glow { opacity: 1; }
     background: var(--bg-card);
     z-index: 1002;
     transform: translateX(100%);
-    transition: transform var(--transition-med);
+    transition: transform var(--transition-med), visibility var(--transition-med);
     display: flex;
     flex-direction: column;
     border-left: 2px solid var(--border);
     box-shadow: -20px 0 60px rgba(10, 10, 10, 0.15);
+    visibility: hidden;
 }
 
-.cart-panel.active { transform: translateX(0); }
+.cart-panel.active {
+    transform: translateX(0);
+    visibility: visible;
+}
 
 .cart-panel__header {
     padding: 24px 28px;
