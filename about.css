@@ -1062,3 +1062,41 @@ body:hover .cursor-glow { opacity: 1; }
         text-align: center;
     }
 }
+
+/* === DARK THEME SUPPORT === */
+[data-theme="dark"] {
+    --bg-primary: #080d1a;
+    --bg-secondary: #0c1529;
+    --bg-card: #0f182c;
+    --bg-card-hover: #162447;
+    --bg-dark: #050811;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #c8ff00;
+    --accent-dark: #b8f000;
+    --accent-glow: rgba(200, 255, 0, 0.28);
+    --accent-glow-strong: rgba(200, 255, 0, 0.6);
+    --border: #1e293b;
+    --border-light: #1e293b;
+    --border-dark: #334155;
+    --nav-bg: rgba(8, 13, 26, 0.92);
+}
+
+body, .nav, .bio-card, .timeline-item, .skills-chip {
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .nav {
+    background: var(--nav-bg);
+}
+
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .journey-card,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .philosophy-card,
+[data-theme="dark"] .connect-card {
+    background: var(--bg-card);
+    border-color: var(--border);
+    color: var(--text-primary);
+}

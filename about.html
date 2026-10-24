@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me — Hosanna Ute | Graphic Designer & Software Developer</title>
-    <meta name="description" content="Meet Hosanna Ute — Computer Engineering undergraduate, graphic designer and software developer. Building visual systems and functional, intelligent applications in Lagos, Nigeria.">
-    <meta name="keywords" content="Hosanna Ute, Hosanna Uto, Delaneen Design, software developer, Python developer, UI/UX designer, computer engineering, University of Ilorin, Lagos, Nigeria">
+    <title>About Hosanna Ute — Designer, Maker &amp; Engineering Student</title>
+    <meta name="description" content="Meet Hosanna Ute, the designer behind Delaneen Design. Graphic and web design, small games, and a growing interest in backend and cloud engineering.">
+    <meta name="keywords" content="Hosanna Ute, Delaneen Design, graphic designer, web designer, visual identity, game experiments, Computer Engineering, University of Ilorin, Nigeria">
     <meta name="author" content="Hosanna Ute">
-    <meta property="og:title" content="About Hosanna Ute — Design Engineer & Software Developer">
-    <meta property="og:description" content="Meet Hosanna Ute — Computer Engineering undergraduate, graphic designer and software developer building visual systems and functional applications.">
+    <meta property="og:title" content="About Hosanna Ute — Designer, Maker &amp; Engineering Student">
+    <meta property="og:description" content="Meet Hosanna Ute, the designer behind Delaneen Design. Graphic and web design, small games, and a growing interest in backend and cloud engineering.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/og-cover.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About — Hosanna Ute | Delaneen Design">
-    <meta name="twitter:description" content="Design Engineer. Software Developer. Building systems that work.">
-    <link rel="icon" href="images/logo.webp" type="image/png">
+    <meta name="twitter:title" content="About Hosanna Ute — Designer, Maker &amp; Engineering Student">
+    <meta name="twitter:description" content="Meet Hosanna Ute, the designer behind Delaneen Design. Graphic and web design, small games, and a growing interest in backend and cloud engineering.">
+    <link rel="icon" href="images/logo.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="theme.css?v=20261024-story">
+    <script src="theme.js?v=20261024-story"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">Skip to content</a>
     <!-- Cursor follower -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -31,12 +34,12 @@
     <header class="nav" id="mainNav">
         <div class="nav__inner">
             <a href="index.html" class="nav__logo">
-                <img loading="lazy" src="images/logo.webp" alt="Delaneen Design Logo" class="nav__logo-img">
+                <img src="images/logo.webp" alt="Delaneen Design Logo" class="nav__logo-img" width="1254" height="1254">
                 <span class="logo-text">Delaneen Design</span>
             </a>
-            <nav class="nav__links" id="navLinks">
-                <a href="index.html" class="nav__link">Portfolio</a>
-                <a href="about.html" class="nav__link nav__link--active">About</a>
+            <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+                <a href="index.html#works" class="nav__link">Portfolio</a>
+                <a href="about.html" class="nav__link nav__link--active" aria-current="page">About</a>
                 <a href="services.html" class="nav__link">Services</a>
                 <a href="index.html#contact" class="nav__link">Contact</a>
             </nav>
@@ -46,6 +49,7 @@
                     <path d="M7 17L17 7M17 7H7M17 7V17"/>
                 </svg>
             </a>
+            <button class="page-theme-toggle" id="pageThemeToggle" type="button">Theme</button>
             <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -57,7 +61,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu__links">
-            <a href="index.html" class="mobile-menu__link">Portfolio</a>
+            <a href="index.html#works" class="mobile-menu__link">Portfolio</a>
             <a href="about.html" class="mobile-menu__link mobile-menu__link--active">About</a>
             <a href="services.html" class="mobile-menu__link">Services</a>
             <a href="index.html#contact" class="mobile-menu__link">Contact</a>
@@ -66,13 +70,14 @@
     </div>
 
     <!-- Hero Section -->
+    <main id="mainContent" tabindex="-1">
     <section class="about-hero" id="hero">
         <div class="about-hero__container">
             <!-- Left Side: Dynamic Profile wrapper -->
             <div class="about-hero__visual">
                 <div class="about-hero__image-wrapper hero__image-wrapper">
                     <div class="about-hero__image-frame">
-                        <img src="images/profile2.webp" alt="Hosanna Ute — Designer & Engineer" class="about-hero__image">
+                        <img src="images/profile2.webp" alt="Hosanna Ute — graphic and web designer" class="about-hero__image" width="1017" height="1227">
                     </div>
                     <!-- Creative brutalist brush frame strokes -->
                     <div class="brush-stroke brush-stroke--top"></div>
@@ -90,11 +95,11 @@
             <!-- Right Side: Text elements -->
             <div class="about-hero__content">
                 <div class="about-hero__tag">
-                    <span>DESIGN ENGINEER</span>
+                    <span>DESIGNER &amp; CURIOUS BUILDER</span>
                 </div>
                 <h1 class="about-hero__title">
-                    I Design Systems.<br>
-                    <span class="outline">I Build Code.</span>
+                    I Design. I Build.<br>
+                    <span class="outline">I Keep Learning.</span>
                 </h1>
                 
                 <div class="about-hero__location">
@@ -106,10 +111,10 @@
                 </div>
 
                 <div class="about-hero__intro">
-                    I build things that work. I do not wait to be taught. I identify what needs to be built, learn what I need to build it, and ship it.
+                    I’m Hosanna. I like strong typography, a good visual idea, and the moment something I’ve made starts working. Sometimes that’s a brand identity. Sometimes it’s a website or a small game.
                 </div>
                 <p class="about-hero__bio-lead">
-                    Currently studying Computer Engineering at the University of Ilorin, I have spent the last two years writing software that goes beyond coursework — building functional desktop applications, intelligent recommendation systems, and document-processing tools.
+                    I study Computer Engineering at the University of Ilorin, and I create under the name Delaneen Design. Graphic and web design are where I feel most at home. Code gives me another way to follow an idea and see where it goes.
                 </p>
             </div>
         </div>
@@ -129,10 +134,10 @@
                             </svg>
                         </div>
                         <span class="bento-card__label">WHO I AM</span>
-                        <h2 class="bento-card__title">Engineering & Code</h2>
+                        <h2 class="bento-card__title">A designer who gets curious</h2>
                         <div class="bento-card__text">
-                            <p>I operate at the intersection of logical engineering and visual clarity. Currently studying Computer Engineering at the University of Ilorin, I translate complex technical problems into fluid, high-fidelity user experiences and functional, optimized backend systems.</p>
-                            <p>My methodology is simple: I build products that solve real problems. By combining visual strategy with data-driven software engineering, I create digital experiences that perform beautifully and load instantly.</p>
+                            <p>I started learning JavaScript on my phone. I like figuring things out with what I have, trying an idea, getting stuck, and working out the next step. Making something gives me a reason to keep learning.</p>
+                            <p>Games are part of that. I enjoy making a set of rules turn into something you can play, then adjusting the details until it feels right. Design and code meet quite naturally there.</p>
                         </div>
                     </div>
                 </div>
@@ -148,17 +153,17 @@
                         <span class="bento-card__label" style="color: rgba(0,0,0,0.6);">CAPABILITIES</span>
                         <h2 class="bento-card__title">What I Bring</h2>
                         <div class="bento-card__text">
-                            <p>My technical range spans frontend interfaces to robust backends. I construct responsive, intentional browser frameworks, write structured Python, build clean GUI applications with Tkinter, and manage persistent storage networks with JSON.</p>
+                            <p>I work on graphic design, visual identities, web layouts, and interfaces. I use HTML, CSS, and JavaScript for the web, and I have Python and Pandas knowledge. I’m learning Node.js and Express as I build my backend foundation.</p>
                         </div>
                         <div class="skills-block">
                             <div class="skills-pills">
-                                <span class="skill-pill">Python (OOP)</span>
-                                <span class="skill-pill">Tkinter GUI</span>
+                                <span class="skill-pill">Graphic Design</span>
+                                <span class="skill-pill">Web Design</span>
                                 <span class="skill-pill">HTML5 & CSS3</span>
                                 <span class="skill-pill">JavaScript</span>
                                 <span class="skill-pill">Figma UI/UX</span>
-                                <span class="skill-pill">JSON Database</span>
-                                <span class="skill-pill">Flutter (In progress)</span>
+                                <span class="skill-pill">Python &amp; Pandas</span>
+                                <span class="skill-pill">Node.js &amp; Express (learning)</span>
                             </div>
                         </div>
                     </div>
@@ -174,9 +179,9 @@
                             </svg>
                         </div>
                         <span class="bento-card__label">BACKGROUND</span>
-                        <h2 class="bento-card__title">Design Foundations</h2>
+                        <h2 class="bento-card__title">More than one way to make things</h2>
                         <div class="bento-card__text">
-                            <p>I started in design. Before writing a single line of code, I was crafting visual systems — branding materials, digital corporate assets, and user interface wireframes. That creative foundation gives me a unique advantage: I understand how software should look and feel to the actual person using it, not just how it functions under the hood.</p>
+                            <p>I’m drawn to the bold type and raw edges of Neo Brutalism, but my creativity moves around. I play piano, knit, enjoy fashion, and write. In secondary school, I wrote a 90-page novella. Making things has been a constant; the medium keeps changing.</p>
                         </div>
                     </div>
                 </div>
@@ -190,10 +195,10 @@
                             </svg>
                         </div>
                         <span class="bento-card__label">EXPERIENCE & EDUCATION</span>
-                        <h2 class="bento-card__title">Academic & Training</h2>
+                        <h2 class="bento-card__title">What I’m building towards</h2>
                         <div class="bento-card__text">
-                            <p>In 2023, I completed comprehensive frontend development training at the <strong>Tbuiz Training Centre</strong> in Lagos, interning on live commercial web platforms. I've also interned as a <strong>data analyst</strong>, where I built skills in reading raw data structures, interpreting user behavior patterns, and translating metrics into actionable business reports.</p>
-                            <p>Now, as a Computer Engineering undergraduate, I combine that strategic analyst foundation with core software engineering. The trajectory is clear, rapid, and focused on delivering high-performance products.</p>
+                            <p>My Computer Engineering studies sit alongside the things I learn for myself. An IT placement at Coca-Cola Nigeria in Lagos has also been part of that experience. I’m interested in how the pieces of a system work together, beyond what appears on a screen.</p>
+                            <p>Backend and cloud engineering are the direction I want to grow in. Right now, that means getting comfortable with Node.js, Express, and the basics of requests, responses, and APIs. I want the understanding to come from things I can build and explain.</p>
                         </div>
                     </div>
                 </div>
@@ -201,19 +206,19 @@
                 <!-- Bento Card 5: Skills & Languages (Full width bento) -->
                 <div class="bento-card bento-card--full" data-animate="fadeUp">
                     <div class="bento-card__inner">
-                        <span class="bento-card__label">SKILLSET MATRIX</span>
-                        <h2 class="bento-card__title">Core Technical Focus</h2>
+                        <span class="bento-card__label">DESIGN, CODE &amp; CURIOSITY</span>
+                        <h2 class="bento-card__title">What I use. What I’m learning.</h2>
                         <div class="skills-pills" style="margin-bottom: 30px;">
-                            <span class="skill-pill">Python Development</span>
-                            <span class="skill-pill">Object-Oriented Programming (OOP)</span>
-                            <span class="skill-pill">Data Structures</span>
-                            <span class="skill-pill">UI/UX Design</span>
-                            <span class="skill-pill">HTML5 / CSS3</span>
+                            <span class="skill-pill">Graphic &amp; Web Design</span>
                             <span class="skill-pill">JavaScript</span>
-                            <span class="skill-pill">Figma Graphic & Interactive Design</span>
-                            <span class="skill-pill">Flutter Application Framework</span>
-                            <span class="skill-pill">File Parsing & Processing</span>
-                            <span class="skill-pill">Algorithm & Logical Design</span>
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Interface Design</span>
+                            <span class="skill-pill">HTML5 / CSS3</span>
+                            <span class="skill-pill">Pandas</span>
+                            <span class="skill-pill">Figma</span>
+                            <span class="skill-pill">Node.js (learning)</span>
+                            <span class="skill-pill">Express (learning)</span>
+                            <span class="skill-pill">Game Experiments</span>
                         </div>
 
                         <span class="bento-card__label">COMMUNICATION</span>
@@ -245,9 +250,9 @@
             <div class="about-cta__tag">
                 <span>OPEN TO OPPORTUNITIES</span>
             </div>
-            <h2 class="about-cta__title">Let's Build Something That Performs</h2>
+            <h2 class="about-cta__title">Have Something in Mind?</h2>
             <p class="about-cta__desc">
-                I am looking for internship opportunities with teams that construct real-world commercial systems. I thrive in environments where I can write clean code, solve challenging operational problems, and work alongside developers who take their craft seriously.
+                I’m open to design projects, creative collaborations, and internships where I can contribute and keep learning. If you have a brand, a website, or an interesting idea in mind, I’d like to hear about it.
             </p>
             <div class="about-cta__buttons">
                 <!-- WhatsApp / Contact BTN (magnetic properties automatic from script.js) -->
@@ -274,21 +279,22 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
-                    <span>LinkedIn Connection</span>
+                    <span>LinkedIn Profile</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
+    </main>
     <footer class="footer">
         <div class="footer__inner">
             <div class="footer__brand">
                 <div class="footer__logo">
-                    <img loading="lazy" src="images/logo.webp" alt="Delaneen Design" class="footer__logo-img">
+                    <img loading="lazy" src="images/logo.webp" alt="Delaneen Design" class="footer__logo-img" width="1254" height="1254">
                     <span class="footer__logo-text">Delaneen Design</span>
                 </div>
-                <p class="footer__tagline">Building systems, experiences and brands that perform. Research-driven design with purpose.</p>
+                <p class="footer__tagline">Bold graphic design. Thoughtful websites. A curious mind behind both.</p>
             </div>
             <div class="footer__links">
                 <div class="footer__links-title">QUICK LINKS</div>
@@ -325,6 +331,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20261024-smooth"></script>
 </body>
 </html>

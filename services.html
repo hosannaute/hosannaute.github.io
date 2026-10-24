@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services — Delaneen Design | Brand, Product & Digital Design</title>
-    <meta name="description" content="Delaneen Design services: Brand identity, product design, UI/UX, digital systems, and creative direction. Research-driven design by Hosanna Ute.">
-    <meta name="keywords" content="Delaneen Design, branding, logo design, flyer design, poster design, website design, UI/UX design, Hosanna Ute, creative services, Nigeria">
+    <title>Design Services — Hosanna Ute | Delaneen Design</title>
+    <meta name="description" content="Graphic design, visual identities, web design, and interface concepts by Hosanna Ute. Explore starting prices and talk through your next project.">
+    <meta name="keywords" content="Hosanna Ute, Delaneen Design, graphic designer, web designer, visual identity, game experiments, Computer Engineering, University of Ilorin, Nigeria">
     <meta name="author" content="Hosanna Ute">
-    <meta property="og:title" content="Services — Delaneen Design | What I Bring To Brands">
-    <meta property="og:description" content="I help brands move beyond looking nice into building stronger communication, stronger presence and stronger user connection.">
+    <meta property="og:title" content="Design Services — Hosanna Ute | Delaneen Design">
+    <meta property="og:description" content="Graphic design, visual identities, web design, and interface concepts by Hosanna Ute. Explore starting prices and talk through your next project.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/og-cover.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Services — Delaneen Design">
-    <meta name="twitter:description" content="Brand identity, product design, UI/UX, digital systems and creative direction.">
-    <link rel="icon" href="images/logo.webp" type="image/png">
+    <meta name="twitter:title" content="Design Services — Hosanna Ute | Delaneen Design">
+    <meta name="twitter:description" content="Graphic design, visual identities, web design, and interface concepts by Hosanna Ute. Explore starting prices and talk through your next project.">
+    <link rel="icon" href="images/logo.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="theme.css?v=20261024-story">
+    <script src="theme.js?v=20261024-story"></script>
 </head>
 <body>
+    <a class="skip-link" href="#mainContent">Skip to content</a>
     <!-- Cursor follower -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -31,13 +34,13 @@
     <header class="nav" id="mainNav">
         <div class="nav__inner">
             <a href="index.html" class="nav__logo">
-                <img loading="lazy" src="images/logo.webp" alt="Delaneen Design Logo" class="nav__logo-img">
+                <img src="images/logo.webp" alt="Delaneen Design Logo" class="nav__logo-img" width="1254" height="1254">
                 <span class="logo-text">Delaneen Design</span>
             </a>
-            <nav class="nav__links" id="navLinks">
-                <a href="index.html" class="nav__link">Portfolio</a>
+            <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+                <a href="index.html#works" class="nav__link">Portfolio</a>
                 <a href="about.html" class="nav__link">About</a>
-                <a href="services.html" class="nav__link nav__link--active">Services</a>
+                <a href="services.html" class="nav__link nav__link--active" aria-current="page">Services</a>
                 <a href="index.html#contact" class="nav__link">Contact</a>
             </nav>
             <a href="https://wa.me/2347082247767" class="nav__cta" target="_blank" rel="noopener">
@@ -46,6 +49,7 @@
                 </svg>
                 <span>WhatsApp Us</span>
             </a>
+            <button class="page-theme-toggle" id="pageThemeToggle" type="button">Theme</button>
             <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -57,7 +61,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu__links">
-            <a href="index.html" class="mobile-menu__link">Portfolio</a>
+            <a href="index.html#works" class="mobile-menu__link">Portfolio</a>
             <a href="about.html" class="mobile-menu__link">About</a>
             <a href="services.html" class="mobile-menu__link">Services</a>
             <a href="index.html#contact" class="mobile-menu__link">Contact</a>
@@ -66,6 +70,7 @@
     </div>
 
     <!-- Hero Section -->
+    <main id="mainContent" tabindex="-1">
     <section class="services-hero" id="hero">
         <!-- Brush stroke decorations -->
         <div class="services-hero__brush services-hero__brush--1"></div>
@@ -77,38 +82,13 @@
             <span class="tag-pill">WHAT I DELIVER</span>
         </div>
         <h1 class="services-hero__title">
-            What I Bring To <span class="accent">Brands, Teams & Clients</span>
+            Design for <span class="accent">Your Next Idea</span>
         </h1>
-        <p class="services-hero__subtitle">I help brands move beyond "looking nice" into building stronger communication, stronger presence and stronger user connection.</p>
+        <p class="services-hero__subtitle">I’m Hosanna, the designer behind Delaneen Design. I make identities, graphics, and websites with a clear message and a bit of personality. Here are a few ways we can work together.</p>
+        <a href="#services" class="services-browse">Browse services <span aria-hidden="true">↓</span></a>
     </section>
 
-    <!-- Workflow Section -->
-    <section class="workflow" id="workflow">
-        <div class="workflow__container">
-            <div class="workflow__header" data-animate="fadeUp">
-                <span class="workflow__label">TIMELINE</span>
-                <h2 class="workflow__title">Creative <span class="accent">Process</span></h2>
-                <p class="workflow__subtitle">From initial strategy to launch. Here is exactly how we construct your brand presence step-by-step.</p>
-            </div>
-            <div class="workflow__grid">
-                <div class="workflow__step" data-animate="fadeUp" data-delay="0">
-                    <div class="step-num">01</div>
-                    <h3 class="step-title">Discover & Strategy</h3>
-                    <p class="step-desc">We deep-dive into your goals, user psychology, and competitor sitemaps to form a crystal clear operational blueprint.</p>
-                </div>
-                <div class="workflow__step" data-animate="fadeUp" data-delay="150">
-                    <div class="step-num">02</div>
-                    <h3 class="step-title">Design & Prototype</h3>
-                    <p class="step-desc">We build component frameworks, custom wireframes, interactive transitions, and robust mockups optimized for high visual prestige.</p>
-                </div>
-                <div class="workflow__step" data-animate="fadeUp" data-delay="300">
-                    <div class="step-num">03</div>
-                    <h3 class="step-title">Develop & Launch</h3>
-                    <p class="step-desc">We code clean, responsive browser pages and backend models, checking validation metrics and loading speeds before deployment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 
     <!-- Services Grid Section -->
@@ -119,12 +99,22 @@
                     <div class="services-section__label">CATALOG</div>
                     <h2 class="services-section__title">Professional Services</h2>
                 </div>
-                <div class="services-section__count" id="catalogCount">03 SERVICES</div>
+                <div class="services-section__count" id="catalogCount" role="status" aria-live="polite">03 SERVICES</div>
             </div>
 
             <!-- Brutalist Category Tabs -->
+            <div class="category-navigation">
+                <label class="category-navigation__label" for="categoryPicker">Browse services by category</label>
+                <select class="category-picker" id="categoryPicker" aria-controls="servicesGrid">
+                    <option value="uiux">Product &amp; UX</option>
+                    <option value="website">Website Design</option>
+                    <option value="poster">Poster Design</option>
+                    <option value="comm">Communication</option>
+                    <option value="brand">Branding</option>
+                    <option value="logo">Logo Design</option>
+                </select>
             <div class="category-tabs-container">
-                <div class="category-tabs" id="categoryTabs">
+                <div class="category-tabs" id="categoryTabs" role="group" aria-label="Service categories">
                     <button class="category-tab active" data-category="uiux">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                         Product & UX
@@ -152,6 +142,7 @@
                 </div>
             </div>
 
+            </div>
             <div class="services-grid" id="servicesGrid">
                 
                 <!-- ==================== CATEGORY 1: PRODUCT & UX DESIGN ==================== -->
@@ -160,9 +151,9 @@
                 <div class="service-card show" data-category="uiux" data-service="produx_landing" data-price="50000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">💻</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
                         <h3 class="service-card__title">Landing Page</h3>
-                        <p class="service-card__desc">High-converting, interactive single-page layouts designed to outline products and funnel users successfully.</p>
+                        <p class="service-card__desc">A focused page design that introduces your idea and gives visitors a clear next step.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -196,9 +187,9 @@
                 <div class="service-card show" data-category="uiux" data-service="produx_multipage" data-price="150000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">🖥️</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
                         <h3 class="service-card__title">Multi-page Business UI</h3>
-                        <p class="service-card__desc">Complete visual blueprint and interactive flow maps designed to structure comprehensive online systems.</p>
+                        <p class="service-card__desc">Connected page designs for a business, with consistent layouts and a clear way to move around.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -232,9 +223,9 @@
                 <div class="service-card show" data-category="uiux" data-service="produx_mobile" data-price="400000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">📱</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
                         <h3 class="service-card__title">Mobile App Design</h3>
-                        <p class="service-card__desc">Complete user flow and state design for mobile ecosystems, optimizing for usability and interface harmony.</p>
+                        <p class="service-card__desc">Screen layouts and interface flows that give your app idea a visual shape.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -270,9 +261,9 @@
                 <div class="service-card" data-category="website" data-service="web_landing" data-price="50000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">🌐</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                         <h3 class="service-card__title">Landing Page Web</h3>
-                        <p class="service-card__desc">A gorgeous, responsive, single-page website optimized to capture client conversions immediately.</p>
+                        <p class="service-card__desc">A responsive single-page website for a product, service, or personal project.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -306,9 +297,9 @@
                 <div class="service-card" data-category="website" data-service="web_standard" data-price="150000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">🏢</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                         <h3 class="service-card__title">Standard Business Web</h3>
-                        <p class="service-card__desc">A complete structural corporate website representing your operational services and background.</p>
+                        <p class="service-card__desc">A multi-page website that introduces your business, explains your services, and makes contact easy.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -342,17 +333,17 @@
                 <div class="service-card" data-category="website" data-service="web_ecommerce" data-price="250000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">🛒</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                         <h3 class="service-card__title">E-Commerce Store</h3>
-                        <p class="service-card__desc">A secure transaction platform configured to catalog products, accept carts, and process checkout operations.</p>
+                        <p class="service-card__desc">A storefront project shaped around your products and chosen commerce platform. We’ll agree on the platform and payment setup before starting.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Product Listings & Detail Pages</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Shopping Cart & Payment Flows</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> User Registration & Account Dashboard</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Secure Payment Gateway Setup</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Administrative Dashboard Mockup</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Storefront design and product pages</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Product and cart interface</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Commerce platform setup (scope agreed)</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Checkout provider integration (scope agreed)</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Handoff and usage notes</li>
                         </ul>
 
                         <div class="service-card__price">
@@ -378,17 +369,17 @@
                 <div class="service-card" data-category="website" data-service="web_custom" data-price="800000">
                     <div class="service-card__inner">
                         <div class="service-card__number">04</div>
-                        <div class="service-card__icon">⚙️</div>
-                        <h3 class="service-card__title">Web Portal & Platform</h3>
-                        <p class="service-card__desc">Deep analytical architecture and interactive database screens built to run complex digital business tools.</p>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                        <h3 class="service-card__title">Custom Web Interface</h3>
+                        <p class="service-card__desc">Interface layouts and frontend work for a larger web idea. We’ll discuss the requirements and agree on the technical scope first.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> UX Audit & Product Strategy</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Custom Admin Dashboard Design</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Role-Based UI (Admin/Client/etc)</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dynamic Data Visualizations</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Scalable Systems & Developer Handoff</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Page flows and interface layouts</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Dashboard visual design</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Role-specific screen designs</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Frontend interactions (scope agreed)</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Technical scope and handoff notes</li>
                         </ul>
 
                         <div class="service-card__price">
@@ -416,9 +407,9 @@
                 <div class="service-card" data-category="poster" data-service="poster_social" data-price="5000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">🎨</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
                         <h3 class="service-card__title">Social Media / Flyer</h3>
-                        <p class="service-card__desc">Eye-catching digital flyers and posts optimized to command immediate engagement on feed layouts.</p>
+                        <p class="service-card__desc">A graphic for an event, announcement, or social post, with a clear message and an expressive layout.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -452,9 +443,9 @@
                 <div class="service-card" data-category="poster" data-service="poster_corporate" data-price="15000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">📈</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
                         <h3 class="service-card__title">Corporate Poster</h3>
-                        <p class="service-card__desc">Professional brand poster directions formatted to communicate announcements, campaigns, or metrics clearly.</p>
+                        <p class="service-card__desc">A poster that gives your business announcement a clear hierarchy and a consistent brand feel.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -488,9 +479,9 @@
                 <div class="service-card" data-category="poster" data-service="poster_movie" data-price="30000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">🎬</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
                         <h3 class="service-card__title">Movie & Event Poster</h3>
-                        <p class="service-card__desc">Dramatic creative visual designs utilizing compositing and advanced layout systems for major campaigns.</p>
+                        <p class="service-card__desc">An expressive poster direction for an event, film, or creative release.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -524,9 +515,9 @@
                 <div class="service-card" data-category="poster" data-service="poster_political" data-price="20000">
                     <div class="service-card__inner">
                         <div class="service-card__number">04</div>
-                        <div class="service-card__icon">🗳️</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
                         <h3 class="service-card__title">Campaign Poster</h3>
-                        <p class="service-card__desc">Bold, highly communicative layouts engineered to capture voters, build authority, and launch campaigns.</p>
+                        <p class="service-card__desc">A campaign layout that puts the person, message, and key information in focus.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -562,9 +553,9 @@
                 <div class="service-card" data-category="comm" data-service="comm_pitch" data-price="25000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">📊</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         <h3 class="service-card__title">Pitch Deck Design</h3>
-                        <p class="service-card__desc">Stunning template systems designed to map statistics and goals cleanly to convince investors and partners.</p>
+                        <p class="service-card__desc">A presentation that gives your story, ideas, and figures a clear visual structure.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -598,9 +589,9 @@
                 <div class="service-card" data-category="comm" data-service="comm_social" data-price="30000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">📢</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         <h3 class="service-card__title">Social Media Pack</h3>
-                        <p class="service-card__desc">A coordinated pack of engagement graphics designed to scale your operational digital audience.</p>
+                        <p class="service-card__desc">A related set of graphics that helps your posts feel like they belong to the same brand.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -634,9 +625,9 @@
                 <div class="service-card" data-category="comm" data-service="comm_campaign" data-price="500000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">📣</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                         <h3 class="service-card__title">Ad Campaign Strategy</h3>
-                        <p class="service-card__desc">Complete structural ad visual system mapping out creative strategy across primary communication channels.</p>
+                        <p class="service-card__desc">A shared visual direction and a set of related designs for your campaign.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -672,9 +663,9 @@
                 <div class="service-card" data-category="brand" data-service="brand_basic" data-price="50000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">🏷️</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="3" stroke-linecap="round"/></svg></div>
                         <h3 class="service-card__title">Basic Branding</h3>
-                        <p class="service-card__desc">A concise visual identity package built to launch new products or small businesses successfully.</p>
+                        <p class="service-card__desc">The visual starting points for your brand: a logo, colour palette, type, and a simple guide.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -708,9 +699,9 @@
                 <div class="service-card" data-category="brand" data-service="brand_corporate" data-price="150000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">🏢</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="3" stroke-linecap="round"/></svg></div>
                         <h3 class="service-card__title">Corporate Identity</h3>
-                        <p class="service-card__desc">Complete structural branding guidelines mapping corporate visual consistency across standard channels.</p>
+                        <p class="service-card__desc">A connected identity across the materials your business uses most.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -744,9 +735,9 @@
                 <div class="service-card" data-category="brand" data-service="brand_full" data-price="500000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">🏆</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="3" stroke-linecap="round"/></svg></div>
                         <h3 class="service-card__title">Brand Strategy & Identity</h3>
-                        <p class="service-card__desc">Complete structural brand roadmap — visual, interactive and messaging components built for industry authority.</p>
+                        <p class="service-card__desc">A broader identity project, starting with your audience and message, then developing the visual direction.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -782,9 +773,9 @@
                 <div class="service-card" data-category="logo" data-service="logo_basic" data-price="10000">
                     <div class="service-card__inner">
                         <div class="service-card__number">01</div>
-                        <div class="service-card__icon">📐</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                         <h3 class="service-card__title">Basic Logo Package</h3>
-                        <p class="service-card__desc">A clean, focused corporate emblem designed to establish standard brand recognition.</p>
+                        <p class="service-card__desc">A focused logo direction for a new idea or a small business.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -818,9 +809,9 @@
                 <div class="service-card" data-category="logo" data-service="logo_standard" data-price="30000">
                     <div class="service-card__inner">
                         <div class="service-card__number">02</div>
-                        <div class="service-card__icon">⚡</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                         <h3 class="service-card__title">Standard Logo Suite</h3>
-                        <p class="service-card__desc">A versatile set of custom corporate logos formatted to scale across physical and digital platforms.</p>
+                        <p class="service-card__desc">A logo family with variations for different layouts and uses.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -854,9 +845,9 @@
                 <div class="service-card" data-category="logo" data-service="logo_premium" data-price="50000">
                     <div class="service-card__inner">
                         <div class="service-card__number">03</div>
-                        <div class="service-card__icon">👑</div>
+                        <div class="service-card__icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                         <h3 class="service-card__title">Premium Logo System</h3>
-                        <p class="service-card__desc">A comprehensive, premium brand identity visual suite built with extreme typographical polish.</p>
+                        <p class="service-card__desc">A fuller logo system, with supporting marks and visual guidance.</p>
                         
                         <div class="service-card__deliverables-title">Expected Deliverables</div>
                         <ul class="service-card__deliverables">
@@ -890,6 +881,34 @@
         </div>
     </section>
 
+    <!-- Workflow Section -->
+    <section class="workflow" id="workflow">
+        <div class="workflow__container">
+            <div class="workflow__header" data-animate="fadeUp">
+                <span class="workflow__label">TIMELINE</span>
+                <h2 class="workflow__title">Creative <span class="accent">Process</span></h2>
+                <p class="workflow__subtitle">We start with a conversation, work through a direction, and refine the details together.</p>
+            </div>
+            <div class="workflow__grid">
+                <div class="workflow__step" data-animate="fadeUp" data-delay="0">
+                    <div class="step-num">01</div>
+                    <h3 class="step-title">Discovery & Strategy</h3>
+                    <p class="step-desc">I’ll ask about your idea, audience, references, budget, and timing. Then we agree on what I’m making.</p>
+                </div>
+                <div class="workflow__step" data-animate="fadeUp" data-delay="150">
+                    <div class="step-num">02</div>
+                    <h3 class="step-title">Design & Prototype</h3>
+                    <p class="step-desc">I’ll share a design direction and work through your feedback before preparing the final version.</p>
+                </div>
+                <div class="workflow__step" data-animate="fadeUp" data-delay="300">
+                    <div class="step-num">03</div>
+                    <h3 class="step-title">Build &amp; Hand Over</h3>
+                    <p class="step-desc">For a website, I build and check the agreed pages. For design work, I prepare the final files and explain what you’re receiving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Floating Cart Button -->
     <button class="cart-float" id="cartFloat" aria-label="Open cart">
@@ -904,7 +923,7 @@
     <div class="cart-overlay" id="cartOverlay"></div>
 
     <!-- Cart Panel -->
-    <div class="cart-panel" id="cartPanel">
+    <div class="cart-panel" id="cartPanel" inert aria-hidden="true" role="dialog" aria-modal="true" aria-label="Your cart">
         <div class="cart-panel__header">
             <h2 class="cart-panel__title">
                 Your Cart
@@ -945,14 +964,15 @@
     </button>
 
     <!-- Footer -->
+    </main>
     <footer class="footer">
         <div class="footer__inner">
             <div class="footer__brand">
                 <div class="footer__logo">
-                    <img loading="lazy" src="images/logo.webp" alt="Delaneen Design" class="footer__logo-img">
+                    <img loading="lazy" src="images/logo.webp" alt="Delaneen Design" class="footer__logo-img" width="1254" height="1254">
                     <span class="footer__logo-text">Delaneen Design</span>
                 </div>
-                <p class="footer__tagline">Building systems, experiences and brands that perform. Research-driven design with purpose.</p>
+                <p class="footer__tagline">Bold graphic design. Thoughtful websites. A curious mind behind both.</p>
             </div>
             <div class="footer__links">
                 <div class="footer__links-title">QUICK LINKS</div>
@@ -1004,7 +1024,7 @@
         web_landing:      { name: 'Web Landing Page', price: 50000, icon: 'WP' },
         web_standard:     { name: 'Standard Business Website', price: 150000, icon: 'SB' },
         web_ecommerce:    { name: 'E-Commerce Store', price: 250000, icon: 'EC' },
-        web_custom:       { name: 'Custom Web Platform', price: 800000, icon: 'CP' },
+        web_custom:       { name: 'Custom Web Interface', price: 800000, icon: 'CP' },
         // Poster Design
         poster_social:    { name: 'Social Media / Flyer', price: 5000, icon: 'SM' },
         poster_corporate: { name: 'Corporate Poster', price: 15000, icon: 'CO' },
@@ -1028,7 +1048,6 @@
     let cart = {};
 
     // ── DOM References ──
-    const cursorGlow = document.getElementById('cursorGlow');
     const mainNav = document.getElementById('mainNav');
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1048,81 +1067,47 @@
     const serviceCards = document.querySelectorAll('.service-card');
     const catalogCount = document.getElementById('catalogCount');
 
-    // ── Cursor Glow ──
-    document.addEventListener('mousemove', (e) => {
-        cursorGlow.style.left = e.clientX + 'px';
-        cursorGlow.style.top = e.clientY + 'px';
-    });
-
-    // ── Category Tab Filtering ──
-    if (categoryTabs) {
-        const tabs = categoryTabs.querySelectorAll('.category-tab');
+    // One filter shared by the desktop category buttons and mobile picker.
+    const categoryPicker = document.getElementById('categoryPicker');
+    const tabs = Array.from(categoryTabs.querySelectorAll('.category-tab'));
+    function filterServices(category) {
+        if (!tabs.some(tab => tab.dataset.category === category)) category = 'uiux';
         tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const category = tab.dataset.category;
-                
-                // Set active tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show/hide service cards matching category
-                let visibleCount = 0;
-                serviceCards.forEach(card => {
-                    if (card.dataset.category === category) {
-                        card.classList.add('show');
-                        visibleCount++;
-                    } else {
-                        card.classList.remove('show');
-                    }
-                });
-                
-                // Update visible count text
-                if (catalogCount) {
-                    catalogCount.textContent = String(visibleCount).padStart(2, '0') + ' SERVICES';
-                }
-            });
+            const selected = tab.dataset.category === category;
+            tab.classList.toggle('active', selected);
+            tab.setAttribute('aria-pressed', String(selected));
+            tab.setAttribute('aria-controls', 'servicesGrid');
         });
-        
-        // Initialize count on first load (e.g. uiux active by default)
-        const activeTab = categoryTabs.querySelector('.category-tab.active');
-        if (activeTab) {
-            const initialCategory = activeTab.dataset.category;
-            let visibleCount = 0;
-            serviceCards.forEach(card => {
-                if (card.dataset.category === initialCategory) {
-                    card.classList.add('show');
-                    visibleCount++;
-                } else {
-                    card.classList.remove('show');
-                }
-            });
-            if (catalogCount) {
-                catalogCount.textContent = String(visibleCount).padStart(2, '0') + ' SERVICES';
-            }
-        }
+        let count = 0;
+        serviceCards.forEach(card => {
+            const visible = card.dataset.category === category;
+            card.classList.toggle('show', visible);
+            card.hidden = !visible;
+            if (visible) count++;
+        });
+        categoryPicker.value = category;
+        catalogCount.textContent = count + (count === 1 ? ' SERVICE' : ' SERVICES');
     }
+    tabs.forEach(tab => tab.addEventListener('click', () => filterServices(tab.dataset.category)));
+    categoryPicker.addEventListener('change', () => filterServices(categoryPicker.value));
+    filterServices(new URLSearchParams(location.search).get('category') || 'uiux');
 
-    // ── Navigation Scroll ──
-    let lastScroll = 0;
+    // ── Navigation Scroll: one update per animation frame ──
+    let scrollFrame = 0;
+    function updateScroll() {
+        scrollFrame = 0;
+        const y = window.scrollY;
+        mainNav.classList.toggle('scrolled', y > 60);
+        backToTop.classList.toggle('visible', y > 400);
+    }
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        if (scrollY > 60) {
-            mainNav.classList.add('scrolled');
-        } else {
-            mainNav.classList.remove('scrolled');
-        }
-        // Back to top visibility
-        if (scrollY > 400) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-        lastScroll = scrollY;
-    });
+        if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScroll);
+    }, { passive: true });
+    updateScroll();
 
     // ── Back to Top ──
     backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
 
     // ── Mobile Menu Toggle ──
@@ -1244,9 +1229,9 @@
                             <div class="cart-item__price">₦${lineTotal.toLocaleString()}</div>
                         </div>
                         <div class="cart-item__qty">
-                            <button class="cart-item__qty-btn cart-qty-minus" data-key="${key}">−</button>
+                            <button class="cart-item__qty-btn cart-qty-minus" data-key="${key}" aria-label="Decrease ${service.name} quantity">−</button>
                             <span class="cart-item__qty-value">${item.qty}</span>
-                            <button class="cart-item__qty-btn cart-qty-plus" data-key="${key}">+</button>
+                            <button class="cart-item__qty-btn cart-qty-plus" data-key="${key}" aria-label="Increase ${service.name} quantity">+</button>
                         </div>
                         <button class="cart-item__remove" data-key="${key}" aria-label="Remove item">✕</button>
                     </div>
@@ -1319,14 +1304,18 @@
 
     // ── Cart Panel Toggle ──
     function openCart() {
+        cartPanel._returnFocus = document.activeElement;
         cartPanel.classList.add('active');
+        cartClose.focus();
         cartOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
     // ── Close Cart ──
     function closeCart() {
+        const wasOpen = cartPanel.classList.contains('active');
         cartPanel.classList.remove('active');
+        if (wasOpen) cartFloat.focus();
         cartOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
@@ -1335,6 +1324,13 @@
     cartClose.addEventListener('click', closeCart);
     cartOverlay.addEventListener('click', closeCart);
 
+    cartPanel.addEventListener('keydown', e => {
+        if (e.key !== 'Tab') return;
+        const items = Array.from(cartPanel.querySelectorAll('button, a[href]')).filter(el => !el.disabled && el.getClientRects().length);
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
     // Close on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -1359,25 +1355,19 @@
     }
 
     // ── Scroll Reveal Animations ──
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = parseInt(entry.target.dataset.delay) || 0;
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, delay);
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const delay = Number.parseInt(entry.target.dataset.delay, 10) || 0;
+                entry.target.style.transitionDelay = `${Math.min(600, delay)}ms`;
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('[data-animate]').forEach(element => observer.observe(element));
+        document.documentElement.classList.add('reveal-ready');
+    }
 
     // ── Initial Cart State ──
     updateCartUI();
